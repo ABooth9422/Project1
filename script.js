@@ -2,7 +2,16 @@ $(document).ready(function(){
   load();
   start();
   citySelect();
-   
+  back();
+
+function back(){
+    $("#goBack").on("click",function(){
+        $("#area").hide();
+        $("#carouselTattoo").hide();
+        $("#imageParagraph").hide();
+        $("#intro").show();
+    })
+}
 
 function start(){
     $("#start").on("click",function(){

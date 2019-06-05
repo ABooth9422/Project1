@@ -35,11 +35,11 @@
 
 <body>
     <div class="shade">
-    <nav class="navbar navbar-dark bg-dark rounded">
+    <nav class="navbar navbar-dark bg-dark rounded" style="width:100%;">
         <a class="navbar-brand text-white" href="#">
             <img src="https://i.ebayimg.com/images/i/292692885581-0-1/s-l1000.jpg" width="30" height="30"
                 class="d-inline-block align-top rounded-circle" alt="">
-            <img src="../Project1/images/logo.png" class="mx-3" width="200" height="40">
+            <img src="../Project1/images/tattoologo.jpg" class="mx-3 rounded-pill" width="200" height="40">
         </a>
     </nav>
 </div>
@@ -47,7 +47,7 @@
         <h5 class="text-white" style="font-size:48px;"> Lets get started!</h5>
         <button type="button" id="start" class="btn btn-secondary btn-lg">Click here to start</button>
     </div>
-    <div container id="area" class="text-center text-white" style="padding:150px;">
+    <div container id="area" class="text-center text-white container-fluid" style="padding:150px;">
         <p> Welcome to Tattoo4U! Our mission is to pair you with a local artist that specializes in the kind of tattoo
             you are looking to get done.
             We will be taking into consideration style and location. Once you have chosen all of the information that we
@@ -63,12 +63,15 @@
         </select>
         <br>
         <button type="button" id="citySubmit" class="btn btn-secondary btn-lg my-2">Submit</button>
+        <button type="button" id="goBack" class="btn btn-secondary btn-lg mx-4">Go Back</button>
     </div>
-    <h5 class="text-white text-center" id="imageParagraph" style="padding:100px;">Use the following Array of images to
+    <div class="container d-flex justify-content-center">
+    <h5 class="text-white text-center" id="imageParagraph" style="padding:50px 0px 25px 0px;width:50%;">Use the following Array of images to
         select the type of style you would like for your tattoo. It's important that you think about the style of what you want.
         Choose Wisely to something that you can see yourself wearing the rest of your life! You can choose Multiple
         styles with the checkboxes below.
     </h5>
+</div>
     <div class="container d-flex justify-content-center mb-5" id="imageCarousel">
 
         <div class="bd-example">
@@ -97,7 +100,7 @@
                         <img src="../Project1/images/realism.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Realism tattoo</h5>
-                            <p>Example of a realism tattoo.</p>
+                            <p>Seventh Sin Tattoo @Christoler</p>
                         </div>
                     </div>
                 </div>
