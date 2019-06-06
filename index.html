@@ -6,8 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Project1/style.css">
     <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -21,20 +28,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <title>Tattoo4U</title>
 </head>
-<style>
-    body {
-        background: url("../Project1/images/background.jpg");
-        background-repeat: no-repeat;
-        font-family: 'Lora', serif;
-        font-weight: bold;
-
-    }
-
-    button,
-    .shade {
-        box-shadow: 5px 5px 5px black;
-    }
-</style>
 
 <body id="body">
     <div class="shade">
@@ -58,9 +51,9 @@
         <h5 class="text-white display-4">Choose a city where you want to get tattoo'd.</h5>
         <select class="custom-select" id="city" style="width:30%;">
             <option selected>What city are you looking to get tattoo'd?</option>
-            <option value="matthews">Matthews</option>
-            <option value="midwood">Plaza-Midwood</option>
-            <option value="davidson">Davidson</option>
+            <option value="matthewsNC">Matthews</option>
+            <option value="midwoodNC">Plaza-Midwood</option>
+            <option value="davidsonNC">Davidson</option>
         </select>
         <br>
         <button type="button" id="citySubmit" class="btn btn-secondary btn-lg my-2">Submit</button>
@@ -76,8 +69,9 @@
         </h5>
  
     </div>
-    <div class="container d-flex justify-content-center"id="tattooStyle">
-    <select class="custom-select" id="tattooInput" style="width:30%;">
+    <div class="container d-flex justify-content-center">
+        <div id="lastInput">
+    <select class="custom-select" id="tattooInput" style="width:100%;">
             <option selected>Which tattoo style did you decide on?</option>
             <option value="traditional">Traditional</option>
             <option value="newSchool">New School</option>
@@ -85,9 +79,11 @@
             <option value="script">Script</option>
             <option value="watercolor">Watercolor</option>
         </select>
+        <br>
         <button type="button" id="tatSubmit" class="btn btn-secondary btn-lg my-2">Submit</button>
         <button type="button" id="goBack2" class="btn btn-secondary btn-lg mx-4">Go Back</button>
     </div>
+</div>
     <div class="container d-flex justify-content-center mb-5" id="imageCarousel">
 
         <div class="bd-example">
