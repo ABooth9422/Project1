@@ -5,6 +5,8 @@ $(document).ready(function () {
     back();
     finalSelection();
     back2(event);
+    // pull();
+    
 
 
 
@@ -48,6 +50,7 @@ $(document).ready(function () {
             $("#body").css({
                 "background": "url(../Project1/images/backgroundShop2.jpg)"
             })
+            cityValue();
         })
 
     }
@@ -58,6 +61,7 @@ $(document).ready(function () {
             $("#carouselTattoo").hide();
             $("#imageParagraph").hide();
             $("#lastInput").hide();
+            style();
         })
     }
 
@@ -68,10 +72,19 @@ $(document).ready(function () {
             $("#body").css({
                 "background": "url(../Project1/images/backgroundShopTest.jpg)"
             })
+            $("#city").val("")
             $("#carouselTattoo").hide();
             $("#imageParagraph").hide();
             $("#lastInput").hide();
         })
     }
-
+    function cityValue(){
+        var cityValue=$("#city").val();
+        pull(cityValue)
+        console.log(cityValue)
+    }
+    function style(){
+        var tattooStyle=$("#tattooInput").val();
+        console.log(tattooStyle)
+    }
 })
