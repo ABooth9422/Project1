@@ -37,3 +37,38 @@ function citySelect(){
 
 })
 
+// Initialize Firebase
+//$(document).ready(function () {
+   // console.log
+  
+   // Your web app's Firebase configuration
+  // var firebaseConfig = {
+   // apiKey: "AIzaSyAJX-V29JpuVwSi8CMTKg59XNZ_lRcarfs",
+    //authDomain: "firstproject-1e2e5.firebaseapp.com",
+   // databaseURL: "https://firstproject-1e2e5.firebaseio.com",
+    //projectId: "firstproject-1e2e5",
+    //storageBucket: "",
+    //messagingSenderId: "290521443362",
+    //appId: "1:290521443362:web:f1a600be3641aac4"
+ // };
+  // Initialize Firebase
+  //firebase.initializeApp(firebaseConfig);
+   // Create a variable to reference the database
+  // var database = firebase.database();
+
+// function pull(){
+//     var queryURL= "https://api.yelp.com/v3/businesses/search?term=tattoos"
+
+//     $.ajax({
+//       header: {
+//           Authorization: "BEARER pggyYPUFjKRZwKGVB3XiuwMO0wrXgQxau8y3DZW7geuRWY4AgHMklAati700_uZcpaX7LA92bSIxf8YgoYZpI4VBB1dVtoGUgTivNlASsTnoL8Nr1ZxNM90NNSP1XHYx",    
+//       },
+//       url:queryURL,
+//       method:"GET"
+//   }).then(function(response){
+//       console.log(response)
+//   })
+// }
+
+//
+    //})
