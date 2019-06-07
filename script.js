@@ -2,12 +2,34 @@ $(document).ready(function () {
     load();
     start();
     citySelect();
+    back();
+    finalSelection();
+    back2(event);
+    // pull();
+    
 
 
-    function start() {
+
+    function back(event) {
+        $("#goBack").on("click", function () {
+            $("#area").hide();
+            $("#carouselTattoo").hide();
+            $("#imageParagraph").hide();
+            $("#lastInput").hide();
+            $("#intro").show();
+            $("#body").css({
+                "background": "url(../Project1/images/background.jpg)"
+            })
+        })
+    }
+
+    function start(event) {
         $("#start").on("click", function () {
             $("#intro").hide();
             $("#area").show();
+            $("#body").css({
+                "background": "url(../Project1/images/backgroundShopTest.jpg)"
+            })
 
         })
     }
@@ -16,41 +38,53 @@ $(document).ready(function () {
         $("#area").hide();
         $("#carouselTattoo").hide();
         $("#imageParagraph").hide();
+        $("#lastInput").hide();
     }
 
-    function citySelect() {
+    function citySelect(event) {
         $("#citySubmit").on("click", function () {
             $("#area").hide();
             $("#carouselTattoo").show();
+            $("#lastInput").show();
             $("#imageParagraph").show();
+            $("#body").css({
+                "background": "url(../Project1/images/backgroundShop2.jpg)"
+            })
+            cityValue();
         })
-        $.ajax({
-            url: queryURL,
-            method: "GET",
 
-            header: {
-                Authorization: "BEARER ZTlHpxgzx1_7tT8vvjxFt2Fa8fVmKkt4xbjV8Uvd5DnvTRuK78vCoYR_McTUMSlCmYHV65qKj9ChQkkHJqvrKxG8y-5BGXJgzE4xD3Qwnexl-65Jz6QpxFgL0wv3XHYx"
+    }
 
-
-            }
+    function finalSelection(event) {
+        $("#tatSubmit").on("click", function () {
+            $("#area").hide();
+            $("#carouselTattoo").hide();
+            $("#imageParagraph").hide();
+            $("#lastInput").hide();
+            style();
         })
     }
 
+    function back2(event) {
+        $("#goBack2").on("click", function () {
+            $("#intro").hide();
+            $("#area").show();
+            $("#body").css({
+                "background": "url(../Project1/images/backgroundShopTest.jpg)"
+            })
+            $("#city").val("")
+            $("#carouselTattoo").hide();
+            $("#imageParagraph").hide();
+            $("#lastInput").hide();
+        })
+    }
+    function cityValue(){
+        var cityValue=$("#city").val();
+        pull(cityValue)
+        console.log(cityValue)
+    }
+    function style(){
+        var tattooStyle=$("#tattooInput").val();
+        console.log(tattooStyle)
+    }
 })
-
-// Initialize Firebase
-//$(document).ready(function () {
-// console.log
-
-
-// function pull(){
-//     var queryURL= "https://api.yelp.com/v3/businesses/search?term=tattoos"
-
-//     $.ajax({
-//       header: {
-//           Authorization: "BEARER pggyYPUFjKRZwKGVB3XiuwMO0wrXgQxau8y3DZW7geuRWY4AgHMklAati700_uZcpaX7LA92bSIxf8YgoYZpI4VBB1dVtoGUgTivNlASsTnoL8Nr1ZxNM90NNSP1XHYx",    
-//       },
-//       url:queryURL,
-//       method:"GET"
-//   }).then(function(response){
-//       console.log(response)
