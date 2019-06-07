@@ -29,15 +29,19 @@ function pull(cityVal) {
         method: "GET"
     }).then(function (response) {
         var businessArray = response.businesses;
+        var styleArray=["new school","traditional","realism","script","watercolor"]
+        
           for (let i = 0; i < businessArray.length; i++) {
-
+            var style=styleArray[Math.floor(Math.random()*styleArray.length)];
+            console.log(style)
             database.ref(businessArray[i].id+"/").set({
                 id: businessArray[i].id,
                 name: businessArray[i].name,
                 phone: businessArray[i].phone,
                 ratings: businessArray[i].rating,
                 reviewCount: businessArray[i].review_count,
-                thumbnail:businessArray[i].image_url
+                thumbnail:businessArray[i].image_url,
+                style:style
             })
         }
         
