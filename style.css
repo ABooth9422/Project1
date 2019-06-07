@@ -13,3 +13,12 @@ button,
 button{
   opacity:0.85;
 }
+#intro{
+  padding:200px;
+}
+
+@media screen and (max-width:400px) {
+  #intro {
+    padding:0px;
+  }
+}
