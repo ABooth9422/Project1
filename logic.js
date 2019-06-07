@@ -28,47 +28,24 @@ function pull(cityVal) {
         method: "GET"
     }).then(function (response) {
         var businessArray = response.businesses;
-          for (let i = 0; i < businessArray.length; i++) {
+        for (let i = 0; i < businessArray.length; i++) {
 
-            database.ref(businessArray[i].id+"/").set({
-                id: businessArray[i].id,
-                name: businessArray[i].name,
-                phone: businessArray[i].phone,
-                ratings: businessArray[i].rating,
-                reviewCount: businessArray[i].review_count,
-                thumbnail:businessArray[i].image_url
-            })
+            
+
+
+
+                database.ref(businessArray[i].id + "/").set({
+                    id: businessArray[i].id,
+                    name: businessArray[i].name,
+                    phone: businessArray[i].phone,
+                    ratings: businessArray[i].rating,
+                    reviewCount: businessArray[i].review_count,
+                    thumbnail: businessArray[i].image_url
+
+
+
+                })
         }
-        
-        //added today...................
-        var makeARandomNumber = function(){
-            return Math.floor(Math.random() * 9);
-        }
-        var randoms = Array(6).fill(0).map(makeARandomNumber);
-        console.log(randoms)
-        // => [4, 4, 3, 2, 6]
-    
-        
-        //griffin added to try and see if this method might work? If not then delete.
-        //$.ajax({
-           // type: "GET",
-           // dataType: 'json',
-           // cache: false,
-            //url: url,
-            //success: function (data) {
-        
-                // Parse the  data:
-                //var resultsString = "";
-               // for (var i in data.Results){
-                 //   console.log( data.Results[i] );
-                   //resultsString+= "<div>"+data.Results[i].Title+ " ("+data.Results[i].businesses+")</div>";
-              //  }
-              //  $("#results").html(resultsString);
-        
-            // If you want to see the raw JSON displayed on the webpage, use this instead:
-            //$("#results").html(  JSON.stringify(data) );
-            //added today..........................from griffin line 51-71
-            // });
 
         // const calls = [];
         // for (let i = 0; i < businessArray.length; i++) {
