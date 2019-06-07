@@ -10,3 +10,6 @@ button,
 .shade {
   box-shadow: 5px 5px 5px black;
 }
+button{
+  opacity:0.85;
+}
