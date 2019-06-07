@@ -43,8 +43,11 @@ function pull(cityVal) {
                 thumbnail:businessArray[i].image_url,
                 style:style
             })
+    
         }
+
         
+    
         
         
         
