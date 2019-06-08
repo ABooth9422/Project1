@@ -44,13 +44,13 @@
     <div container id="area" class="text-center text-white font-weight-bold container-fluid" style="padding:150px;">
         <p> Welcome to Tattoo4U! Our mission is to pair you with a local artist that specializes in the kind of tattoo
             you are looking to get done.
-            We will be taking into consideration style and location. Once you have chosen all of the information that we
-            requested.
-            We will show you the best local shops in the area and show you the ratings and customer reviews.
+            We will take into consideration style and location.
+            Once you have chosen all of the information that we
+            requested, we will show you the best local shops in the area with their ratings and customer reviews.
         </p>
         <h5 class="text-white display-4">Choose a city where you want to get tattoo'd.</h5>
         <select class="custom-select" id="city" style="width:30%;">
-            <option selected>What city are you looking to get tattoo'd?</option>
+            <option selected>Choose your location</option>
             <option value="matthewsNC">Matthews</option>
             <option value="midwoodNC">Plaza-Midwood</option>
             <option value="davidsonNC">Davidson</option>
@@ -64,8 +64,7 @@
             style="padding:50px 0px 20px 0px;width:50%;">Use the following Array of images to
             select the type of style you would like for your tattoo. It's important that you think about the style of
             what you want.
-            Choose Wisely to something that you can see yourself wearing the rest of your life! You can choose Multiple
-            styles with the checkboxes below.
+            Choose wisely! It should be something that you can see yourself wearing for the rest of your life!
         </h5>
 
     </div>
@@ -145,31 +144,76 @@
         </div>
     </div>
     <div class="container-fluid d-flex justify-content-center mb-5" id="resultsDiv">
-        <div class="row" id="result1">
-            <div class="col-6" id="mainImage1"></div>
-            <div class="col-6" id="preliminaryData1">
-                <div class="row" id="name1"></div>
-                <div class="row" id="rating1"></div>
-                <div class="row" id="addy1"></div>
-                <div class="row" id="seemore1"></div>
+        <div id="result1">
+            <div class="row" id="initialResult1">
+                <div class="col-6" id="mainImage1"></div>
+                <div class="col-6" id="preliminaryData1">
+                    <div class="row" id="name1"></div>
+                    <div class="row" id="rating1"></div>
+                    <div class="row" id="addy1"></div>
+                    <div class="row" id="seemore1"></div>
+                </div>
+            </div>
+            <div class="row" id="secondaryResult1">
+                <div class="col-6" id="3images1">
+                    <div class="row" id="3images1-1"></div>
+                    <div class="row" id="3images1-2"></div>
+                    <div class="row" id="3images1-3"></div>
+                </div>
+                <div class="col-6">
+                    <div class="row" id="phone1"></div>
+                    <div class="row" id="review1-1"></div>
+                    <div class="row" id="review1-2"></div>
+                    <div class="row" id="review1-3"></div>
+                </div>
             </div>
         </div>
-        <div class="row" id="resultTwo">
-            <div class="col-6" id="mainImage2"></div>
-            <div class="col-6" id="preliminaryData2">
-                <div class="row" id="name2"></div>
-                <div class="row" id="rating2"></div>
-                <div class="row" id="addy2"></div>
-                <div class="row" id="seemore2"></div>
+        <div id="result2">
+            <div class="row" id="initialResult2">
+                <div class="col-6" id="mainImage2"></div>
+                <div class="col-6" id="preliminaryData2">
+                    <div class="row" id="name2"></div>
+                    <div class="row" id="rating2"></div>
+                    <div class="row" id="addy2"></div>
+                    <div class="row" id="seemore2"></div>
+                </div>
+            </div>
+            <div class="row" id="secondaryResult2">
+                <div class="col-6" id="3images2">
+                    <div class="row" id="3images2-1"></div>
+                    <div class="row" id="3images2-2"></div>
+                    <div class="row" id="3images2-3"></div>
+                </div>
+                <div class="col-6">
+                    <div class="row" id="phone2"></div>
+                    <div class="row" id="review2-1"></div>
+                    <div class="row" id="review2-2"></div>
+                    <div class="row" id="review2-3"></div>
+                </div>
             </div>
         </div>
-        <div class="row" id="resultThree">
-            <div class="col-6" id="mainImage3"></div>
-            <div class="col-6" id="preliminaryData3">
-                <div class="row" id="name3"></div>
-                <div class="row" id="rating3"></div>
-                <div class="row" id="addy3"></div>
-                <div class="row" id="seemore3"></div>
+        <div id="result3">
+            <div class="row" id="initialResult3">
+                <div class="col-6" id="mainImage3"></div>
+                <div class="col-6" id="preliminaryData3">
+                    <div class="row" id="name3"></div>
+                    <div class="row" id="rating3"></div>
+                    <div class="row" id="addy3"></div>
+                    <div class="row" id="seemore3"></div>
+                </div>
+            </div>
+            <div class="row" id="secondaryResult3">
+                <div class="col-6" id="3images3">
+                    <div class="row" id="3images3-1"></div>
+                    <div class="row" id="3images3-2"></div>
+                    <div class="row" id="3images3-3"></div>
+                </div>
+                <div class="col-6">
+                    <div class="row" id="phone3"></div>
+                    <div class="row" id="review3-1"></div>
+                    <div class="row" id="review3-2"></div>
+                    <div class="row" id="review3-3"></div>
+                </div>
             </div>
         </div>
     </div>
