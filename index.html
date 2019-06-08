@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../Project1/style.css">
     <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-    
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -37,9 +37,9 @@
             </a>
         </nav>
     </div>
-    <div container id="intro" class="text-center" style="padding:200px;">
+    <div id="intro" class="text-center">
         <h5 class="text-white" style="font-size:48px;"> Lets get started!</h5>
-        <button type="button" id="start" class="btn btn-secondary btn-lg">Click here to start</button>
+        <button type="button" id="start" class="btn btn-secondary">Click here to start</button>
     </div>
     <div container id="area" class="text-center text-white font-weight-bold container-fluid" style="padding:150px;">
         <p> Welcome to Tattoo4U! Our mission is to pair you with a local artist that specializes in the kind of tattoo
@@ -59,7 +59,7 @@
         <button type="button" id="citySubmit" class="btn btn-secondary btn-lg my-2">Submit</button>
         <button type="button" id="goBack" class="btn btn-secondary btn-lg mx-4">Go Back</button>
     </div>
-    <div class="container d-flex justify-content-center">
+    <div class="container-fluid d-flex justify-content-center">
         <h5 class="text-white text-center font-weight-bold" id="imageParagraph"
             style="padding:50px 0px 20px 0px;width:50%;">Use the following Array of images to
             select the type of style you would like for your tattoo. It's important that you think about the style of
@@ -67,24 +67,24 @@
             Choose Wisely to something that you can see yourself wearing the rest of your life! You can choose Multiple
             styles with the checkboxes below.
         </h5>
- 
+
     </div>
-    <div class="container d-flex justify-content-center">
+    <div class="container-fluid d-flex justify-content-center">
         <div id="lastInput">
-    <select class="custom-select" id="tattooInput" style="width:100%;">
-            <option selected>Which tattoo style did you decide on?</option>
-            <option value="traditional">Traditional</option>
-            <option value="newSchool">New School</option>
-            <option value="realism">Realism</option>
-            <option value="script">Script</option>
-            <option value="watercolor">Watercolor</option>
-        </select>
-        <br>
-        <button type="button" id="tatSubmit" class="btn btn-secondary btn-lg my-2">Submit</button>
-        <button type="button" id="goBack2" class="btn btn-secondary btn-lg mx-4">Go Back</button>
+            <select class="custom-select" id="tattooInput" style="width:100%;">
+                <option selected>Which tattoo style did you decide on?</option>
+                <option value="traditional">Traditional</option>
+                <option value="newSchool">New School</option>
+                <option value="realism">Realism</option>
+                <option value="script">Script</option>
+                <option value="watercolor">Watercolor</option>
+            </select>
+            <br>
+            <button type="button" id="tatSubmit" class="btn btn-secondary btn-lg my-2">Submit</button>
+            <button type="button" id="goBack2" class="btn btn-secondary btn-lg mx-4">Go Back</button>
+        </div>
     </div>
-</div>
-    <div class="container d-flex justify-content-center mb-5" id="imageCarousel">
+    <div class="container-fluid d-flex justify-content-center mb-5" id="imageCarousel">
 
         <div class="bd-example">
             <div id="carouselTattoo" class="carousel slide my-3" data-ride="carousel" style="width:500px;height:500px;">
@@ -118,20 +118,20 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                            <img src="../Project1/images/script.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5> Script tattoo</h5>
-                                <p>Example of expert lettering</p>
-                            </div>
+                        <img src="../Project1/images/script.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5> Script tattoo</h5>
+                            <p>Example of expert lettering</p>
                         </div>
-                            <div class="carousel-item">
-                                    <img src="../Project1/images/watercolor.jpg" class="d-block w-100" alt="...">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>Watercolor</h5>
-                                        <p>Example of Watercolor</p>
-                                    </div>
-                                </div>
-                        
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../Project1/images/watercolor.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Watercolor</h5>
+                            <p>Example of Watercolor</p>
+                        </div>
+                    </div>
+
                 </div>
                 <a class="carousel-control-prev" href="#carouselTattoo" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -144,7 +144,35 @@
             </div>
         </div>
     </div>
-    <div class="container d-flex justify-content-center mb-5" id="resultsDiv"> </div>
+    <div class="container-fluid d-flex justify-content-center mb-5" id="resultsDiv">
+        <div class="row" id="result1">
+            <div class="col-6" id="mainImage1"></div>
+            <div class="col-6" id="preliminaryData1">
+                <div class="row" id="name1"></div>
+                <div class="row" id="rating1"></div>
+                <div class="row" id="addy1"></div>
+                <div class="row" id="seemore1"></div>
+            </div>
+        </div>
+        <div class="row" id="resultTwo">
+            <div class="col-6" id="mainImage2"></div>
+            <div class="col-6" id="preliminaryData2">
+                <div class="row" id="name2"></div>
+                <div class="row" id="rating2"></div>
+                <div class="row" id="addy2"></div>
+                <div class="row" id="seemore2"></div>
+            </div>
+        </div>
+        <div class="row" id="resultThree">
+            <div class="col-6" id="mainImage3"></div>
+            <div class="col-6" id="preliminaryData3">
+                <div class="row" id="name3"></div>
+                <div class="row" id="rating3"></div>
+                <div class="row" id="addy3"></div>
+                <div class="row" id="seemore3"></div>
+            </div>
+        </div>
+    </div>
     <br>
     <br>
 
@@ -157,27 +185,27 @@
     <div class="card text-center rounded-pill fixed-bottom bg-dark mt-3">
         <div class="card-footer text-white font-weight-bold">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="img" id="Aaron"><a href="https://abooth9422.github.io/"target="_blank"><img
-                                src="../Project1/images/git.png" class="rounded-circle" width="40" height="40"></a><label for="Aaron"
-                            class="mx-4">Aaron Booth</label></div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <div class="img" id="Aaron"><a href="https://abooth9422.github.io/" target="_blank"><img
+                                src="../Project1/images/git.png" class="rounded-circle" width="40"
+                                height="40"></a><label for="Aaron" class="mx-4">Aaron Booth</label></div>
 
                 </div>
-                <div class="col-lg-3">
-                    <div class="img" id="Robbi"><a href="https://rmwalls.github.io/"target="_blank"><img
-                                src="../Project1/images/git2.png" class="rounded-circle" width="40" height="40"></a><label for="Aaron"
-                            class="mx-4">Robbi Walls</label></div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <div class="img" id="Robbi"><a href="https://rmwalls.github.io/" target="_blank"><img
+                                src="../Project1/images/git2.png" class="rounded-circle" width="40"
+                                height="40"></a><label for="Aaron" class="mx-4">Robbi Walls</label></div>
 
                 </div>
-                <div class="col-lg-3">
-                    <div class="img" id="Griffin"><a href="https://griffinth.github.io/"target="_blank"><img
-                                src="../Project1/images/git3.png" class="rounded-circle" width="40" height="40"></a><label for="Aaron"
-                            class="mx-4">Griffin Hume</label></div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <div class="img" id="Griffin"><a href="https://griffinth.github.io/" target="_blank"><img
+                                src="../Project1/images/git3.png" class="rounded-circle" width="40"
+                                height="40"></a><label for="Aaron" class="mx-4">Griffin Hume</label></div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="img" id="Alicia"><a href="https://atamboli4718.github.io/Bootstrap-Portfolio/"target="_blank"><img
-                                src="../Project1/images/git4.png" class="rounded-circle" width="40" height="40"></a><label for="Aaron"
-                            class="mx-4">Alicia Tamboli</label></div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <div class="img" id="Alicia"><a href="https://atamboli4718.github.io/Bootstrap-Portfolio/"
+                            target="_blank"><img src="../Project1/images/git4.png" class="rounded-circle" width="40"
+                                height="40"></a><label for="Aaron" class="mx-4">Alicia Tamboli</label></div>
 
                 </div>
             </div>
