@@ -43,8 +43,14 @@ function pull(cityVal) {
                 thumbnail:businessArray[i].image_url,
                 style:style
             })
+    
         }
 
+        
+    
+        
+        
+        
         // const calls = [];
         // for (let i = 0; i < businessArray.length; i++) {
         //     var name = businessArray[i].id;
