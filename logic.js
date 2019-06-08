@@ -43,14 +43,17 @@ function pull(cityVal) {
                 thumbnail:businessArray[i].image_url,
                 style:style
             })
-    
-        }
+        
+        database.ref(businessArray[i].id+"/").on("child_added", function (snapshot) {
+                var sv= snapshot.val();
+                console.log(sv)
 
         
     
         
         
-        
+        })
+    }
         // const calls = [];
         // for (let i = 0; i < businessArray.length; i++) {
         //     var name = businessArray[i].id;
