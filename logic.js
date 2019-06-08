@@ -28,6 +28,7 @@ function pull(cityVal) {
 
         method: "GET"
     }).then(function (response) {
+        console.log(response.businesses[0].id);
         var businessArray = response.businesses;
           for (let i = 0; i < businessArray.length; i++) {
 
@@ -40,8 +41,27 @@ function pull(cityVal) {
                 thumbnail:businessArray[i].image_url
             })
         }
+
+        let id1 = response.businesses[0].id;
+        var queryId1 = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/" + id1;
+
+        $.ajax({
+    
+          headers: {
+                Authorization: "BEARER pggyYPUFjKRZwKGVB3XiuwMO0wrXgQxau8y3DZW7geuRWY4AgHMklAati700_uZcpaX7LA92bSIxf8YgoYZpI4VBB1dVtoGUgTivNlASsTnoL8Nr1ZxNM90NNSP1XHYx",
+            },
+            url: queryId1,
+    
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+        });
         
-        
+        database.ref('/'+id1).once('value',function(snapshot){
+            console.log(snapshot.val());
+            // $('#name1').textContent=snapshot.val(name);
+
+        })
         
         
         // const calls = [];
