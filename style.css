@@ -10,26 +10,6 @@ button,
 .shade {
   box-shadow: 5px 5px 5px black;
 }
-@media only screen and (max-width:1000px){
-  .centered{font-size:12pt!important;}
-  }
-  @media only screen and (max-width:800px){
-  .centered{font-size:11pt!important;}
-  }
-  @media only screen and (max-width:600px){
-  .centered{font-size:10pt!important;}
-  }
-  @media only screen and (max-width:400px){
-  .centered{font-size:9pt!important;}
-  }
-  @media only screen and (max-width:200px){
-  .centered{font-size:8pt!important;}
-  }
- 
-  .centered{ 
-  position: absolute; 
-  width:100%;
-  height:auto;
-  text-align:center;
-  font-size:14pt;
-  }
+button{
+  opacity:0.85;
+}

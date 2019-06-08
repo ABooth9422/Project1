@@ -20,7 +20,8 @@ function pull(cityVal) {
     var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=tattoos&location=" + cityVal;
 
     $.ajax({
-        headers: {
+
+      headers: {
             Authorization: "BEARER pggyYPUFjKRZwKGVB3XiuwMO0wrXgQxau8y3DZW7geuRWY4AgHMklAati700_uZcpaX7LA92bSIxf8YgoYZpI4VBB1dVtoGUgTivNlASsTnoL8Nr1ZxNM90NNSP1XHYx",
         },
         url: queryURL,
@@ -28,23 +29,20 @@ function pull(cityVal) {
         method: "GET"
     }).then(function (response) {
         var businessArray = response.businesses;
-        for (let i = 0; i < businessArray.length; i++) {
-
-            
-
-
-
-                database.ref(businessArray[i].id + "/").set({
-                    id: businessArray[i].id,
-                    name: businessArray[i].name,
-                    phone: businessArray[i].phone,
-                    ratings: businessArray[i].rating,
-                    reviewCount: businessArray[i].review_count,
-                    thumbnail: businessArray[i].image_url
-
-
-
-                })
+        var styleArray=["new school","traditional","realism","script","watercolor"]
+        
+          for (let i = 0; i < businessArray.length; i++) {
+            var style=styleArray[Math.floor(Math.random()*styleArray.length)];
+            console.log(style)
+            database.ref(businessArray[i].id+"/").set({
+                id: businessArray[i].id,
+                name: businessArray[i].name,
+                phone: businessArray[i].phone,
+                ratings: businessArray[i].rating,
+                reviewCount: businessArray[i].review_count,
+                thumbnail:businessArray[i].image_url,
+                style:style
+            })
         }
 
         // const calls = [];
@@ -74,5 +72,40 @@ function pull(cityVal) {
         //     method: "GET"
 
         // })
+    })
+}
+
+function pull2() {
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=tattoos&location=Matthews";
+
+    $.ajax({
+
+      headers: {
+            Authorization: "BEARER pggyYPUFjKRZwKGVB3XiuwMO0wrXgQxau8y3DZW7geuRWY4AgHMklAati700_uZcpaX7LA92bSIxf8YgoYZpI4VBB1dVtoGUgTivNlASsTnoL8Nr1ZxNM90NNSP1XHYx",
+        },
+        url: queryURL,
+
+        method: "GET"
+    }).then(function (response) {
+        var businessArray = response.businesses;
+
+        console.log(businessArray);
+        
+        // var styleArray=["new school","traditional","realism","script","watercolor"]
+        
+        //   for (let i = 0; i < businessArray.length; i++) {
+        //     var style=styleArray[Math.floor(Math.random()*styleArray.length)];
+        //     console.log(style)
+        //     database.ref(businessArray[i].id+"/").set({
+        //         id: businessArray[i].id,
+        //         name: businessArray[i].name,
+        //         phone: businessArray[i].phone,
+        //         ratings: businessArray[i].rating,
+        //         reviewCount: businessArray[i].review_count,
+        //         thumbnail:businessArray[i].image_url,
+        //         style:style
+        //     })
+        // }
+
     })
 }
