@@ -69,6 +69,9 @@ function pull(cityVal, tattooStyle) {
                 rating.text("Rating: "+ sv.ratings)
                 var reviewCount=$("<h5>")
                 reviewCount.text("Reviews: " +sv.reviewCount)
+                var newBackground =$("#body").css({
+                    "background": "url(../Project1/images/backgroundEquip.jpg)"
+                })
             
                 var button=$("<button>")
                 button.addClass("btn btn-secondary")
