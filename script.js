@@ -92,8 +92,5 @@ $(document).ready(function () {
         pull(cityValue,tattooStyle)
         console.log(cityValue)
     }
-    // function style(){
-    //     var tattooStyle=$("#tattooInput").val();
-    //     console.log(tattooStyle)
-    // }
+   
 })
