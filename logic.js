@@ -69,10 +69,17 @@ function pull(cityVal, tattooStyle) {
                 rating.text("Rating: "+ sv.ratings)
                 var reviewCount=$("<h5>")
                 reviewCount.text("Reviews: " +sv.reviewCount)
+            
                 var button=$("<button>")
                 button.addClass("btn btn-secondary")
                 button.addClass("resultButton")
+                $(".resultButton").on("click",function(){
+                    moreResults(sv.id)
+                })
+                button.attr("data-target",".moreImages")
+                button.attr("data-toggle","modal")
                 button.text("click for more pictures!")
+
                 ul.append(name,phone,rating,reviewCount,button)
                 row.append(image,ul)
                 row.appendTo("#resultsDiv")
@@ -81,23 +88,30 @@ function pull(cityVal, tattooStyle) {
     })
 }
 
+function moreResults(id){
+    
+    let id1 = id;
+    var queryId1 = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/" + id1;
+    
+    $.ajax({
+    
+      headers: {
+            Authorization: "BEARER pggyYPUFjKRZwKGVB3XiuwMO0wrXgQxau8y3DZW7geuRWY4AgHMklAati700_uZcpaX7LA92bSIxf8YgoYZpI4VBB1dVtoGUgTivNlASsTnoL8Nr1ZxNM90NNSP1XHYx",
+        },
+        url: queryId1,
+    
+        method: "GET"
+    }).then(function (response) {
+            console.log(response)
+            for (let index = 0; index < response.photos.length; index++) {
+            var moreImages=$("<img src= still image'>")
+            moreImages.attr("src",response.photos[index])
+            moreImages.addClass("img-thumbnail")
+            moreImages.appendTo($(".modal-content"))
+            } 
+        }
+    );
+    
+}
 
-// add more results button
-// let id1 = response.businesses[0].id;
-// var queryId1 = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/" + id1;
 
-// $.ajax({
-
-//   headers: {
-//         Authorization: "BEARER pggyYPUFjKRZwKGVB3XiuwMO0wrXgQxau8y3DZW7geuRWY4AgHMklAati700_uZcpaX7LA92bSIxf8YgoYZpI4VBB1dVtoGUgTivNlASsTnoL8Nr1ZxNM90NNSP1XHYx",
-//     },
-//     url: queryId1,
-
-//     method: "GET"
-// }).then(function (response) {
-//     console.log(response);
-// });
-
-// database.ref('/'+id1).once('value',function(snapshot){
-//     console.log(snapshot.val());
-//     // $('#name1').textContent=snapshot.val(name);
