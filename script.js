@@ -9,7 +9,7 @@ $(document).ready(function () {
     
 
 
-
+    //when the Back button is clicked from 2nd "page"
     function back(event) {
         $("#goBack").on("click", function () {
             $("#area").hide();
@@ -23,6 +23,7 @@ $(document).ready(function () {
         })
     }
 
+    //after Start button is clicked
     function start(event) {
         $("#start").on("click", function () {
             $("#intro").hide();
@@ -34,6 +35,7 @@ $(document).ready(function () {
         })
     }
 
+    //on page load
     function load() {
         $("#area").hide();
         $("#carouselTattoo").hide();
@@ -41,6 +43,7 @@ $(document).ready(function () {
         $("#lastInput").hide();
     }
 
+    // after city is selected and Submit clicked
     function citySelect(event) {
         $("#citySubmit").on("click", function () {
             $("#area").hide();
@@ -55,6 +58,7 @@ $(document).ready(function () {
 
     }
 
+    //after tattoo style selected and Submit button clicked
     function finalSelection(event) {
         $("#tatSubmit").on("click", function () {
             $("#area").hide();
@@ -66,6 +70,7 @@ $(document).ready(function () {
         })
     }
 
+    //after Back button is clicked on third "page"
     function back2(event) {
         $("#goBack2").on("click", function () {
             $("#intro").hide();
@@ -79,6 +84,8 @@ $(document).ready(function () {
             $("#lastInput").hide();
         })
     }
+
+    // city and style are stored and pulled from database
     function cityValue(){
         var cityValue=$("#city").val();
         var tattooStyle=$("#tattooInput").val();
