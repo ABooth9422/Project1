@@ -24,7 +24,10 @@ button{
   display:flex;
   flex-wrap:wrap;
 }
-
+.modal-content{
+  display:flex;
+  flex-wrap:wrap;
+}
 @media screen and (max-width:500px) {
   #intro {
     padding:0px;
