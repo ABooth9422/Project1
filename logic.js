@@ -51,6 +51,7 @@ function pull(cityVal, tattooStyle) {
         }
         database.ref().on("child_added", function (snapshot) {
             var sv = snapshot.val();
+            console.log(sv)
             if (sv.style === tattooStyle) {
                 var row=$("<div>")
                 row.addClass("container")
@@ -59,6 +60,7 @@ function pull(cityVal, tattooStyle) {
                 var image=$("<img src= still image'>")
                 image.addClass("img-thumbnail")
                 image.attr("src", sv.thumbnail)
+                var ul=$("<ul>")
                 var name = $("<h5>")
                 name.text("Shop Name: "+sv.name)
                 var phone=$("<h5>")
@@ -67,7 +69,12 @@ function pull(cityVal, tattooStyle) {
                 rating.text("Rating: "+ sv.ratings)
                 var reviewCount=$("<h5>")
                 reviewCount.text("Reviews: " +sv.reviewCount)
-                row.append(image,name,phone,rating,reviewCount)
+                var button=$("<button>")
+                button.addClass("btn btn-secondary")
+                button.addClass("resultButton")
+                button.text("click for more pictures!")
+                ul.append(name,phone,rating,reviewCount,button)
+                row.append(image,ul)
                 row.appendTo("#resultsDiv")
             }
         })
