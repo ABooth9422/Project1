@@ -16,6 +16,11 @@ button{
 #intro{
   padding:200px;
 }
+.img-thumbnail{
+  width:200px;
+  height:200px;
+}
+
 
 @media screen and (max-width:500px) {
   #intro {

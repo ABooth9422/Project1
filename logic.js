@@ -31,7 +31,7 @@ function pull(cityVal, tattooStyle) {
         method: "GET"
     }).then(function (response) {
         var businessArray = response.businesses;
-        var styleArray = ["new school", "traditional", "realism", "script", "watercolor"]
+        var styleArray = ["newSchool", "traditional", "realism", "script", "watercolor"]
 
         for (let i = 0; i < businessArray.length; i++) {
             var style = styleArray[Math.floor(Math.random() * styleArray.length)];
@@ -51,18 +51,30 @@ function pull(cityVal, tattooStyle) {
         }
         database.ref().on("child_added", function (snapshot) {
             var sv = snapshot.val();
-            console.log(snapshot)
-            console.log(tattooStyle)
-            var value = $("#tattooInput").val();
-            console.log(value)
             if (sv.style === tattooStyle) {
-                var name = $("<p>")
-                name.text(sv.name)
-                name.appendTo("#name1")
+                var row=$("<div>")
+                row.addClass("container")
+                row.addClass("my-5")
+                row.addClass("results")
+                var image=$("<img src= still image'>")
+                image.addClass("img-thumbnail")
+                image.attr("src", sv.thumbnail)
+                var name = $("<h5>")
+                name.text("Shop Name: "+sv.name)
+                var phone=$("<h5>")
+                phone.text("Phone: "+sv.phone)
+                var rating=$("<h5>")
+                rating.text("Rating: "+ sv.ratings)
+                var reviewCount=$("<h5>")
+                reviewCount.text("Reviews: " +sv.reviewCount)
+                row.append(image,name,phone,rating,reviewCount)
+                row.appendTo("#resultsDiv")
             }
         })
     })
 }
+
+
 // add more results button
 // let id1 = response.businesses[0].id;
 // var queryId1 = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/" + id1;
