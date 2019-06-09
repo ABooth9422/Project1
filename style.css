@@ -7,7 +7,8 @@ body {
 }
 
 button,
-.shade {
+.shade,
+.img-thumbnail {
   box-shadow: 5px 5px 5px black;
 }
 button{
@@ -25,11 +26,10 @@ button{
   flex-wrap:wrap;
 }
 .modal-content{
-  display:flex;
-  flex-wrap:wrap;
+  width:fit-content;
 }
 @media screen and (max-width:500px) {
   #intro {
-    padding:0px;
+    padding:200px 0px 0px 0px;
   }
 }

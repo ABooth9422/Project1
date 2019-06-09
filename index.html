@@ -147,12 +147,23 @@
     <div class="modal fade moreImages" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal">Close</button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"style="width:5%;">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+          
+            <div class="row"id="modalRow">
+
+            </div>
+             
+          
         </div>
       </div>
     </div>
     <div class="container-fluid text-center mb-5 text-white" id="resultsDiv">
     </div>
+    <div class="container-fluid text-center">
+    <button type="button" id="newSearch" class="btn btn-secondary btn-lg mb-5">Start New Search!</button>
+</div>  
     <br>
     <br>
     <script src="script.js"></script>

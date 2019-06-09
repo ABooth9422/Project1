@@ -10,7 +10,7 @@ $(document).ready(function () {
 
 
     //when the Back button is clicked from 2nd "page"
-    function back(event) {
+    function back() {
         $("#goBack").on("click", function () {
             $("#area").hide();
             $("#carouselTattoo").hide();
@@ -24,7 +24,7 @@ $(document).ready(function () {
     }
 
     //after Start button is clicked
-    function start(event) {
+    function start() {
         $("#start").on("click", function () {
             $("#intro").hide();
             $("#area").show();
@@ -41,10 +41,11 @@ $(document).ready(function () {
         $("#carouselTattoo").hide();
         $("#imageParagraph").hide();
         $("#lastInput").hide();
+        $("#newSearch").hide();
     }
 
     // after city is selected and Submit clicked
-    function citySelect(event) {
+    function citySelect() {
         $("#citySubmit").on("click", function () {
             $("#area").hide();
             $("#carouselTattoo").show();
@@ -59,19 +60,24 @@ $(document).ready(function () {
     }
 
     //after tattoo style selected and Submit button clicked
-    function finalSelection(event) {
+    function finalSelection() {
         $("#tatSubmit").on("click", function () {
             $("#area").hide();
             $("#carouselTattoo").hide();
             $("#imageParagraph").hide();
             $("#lastInput").hide();
             cityValue();
+            $("#body").css({"background": "url(../Project1/images/backgroundInk.jpg)"})
+            $("#newSearch").show();
+           $("#newSearch").on("click",function(){
+            reload();
+           })
             
         })
     }
 
     //after Back button is clicked on third "page"
-    function back2(event) {
+    function back2() {
         $("#goBack2").on("click", function () {
             $("#intro").hide();
             $("#area").show();
@@ -92,5 +98,7 @@ $(document).ready(function () {
         pull(cityValue,tattooStyle)
         console.log(cityValue)
     }
-   
+    function reload(){
+        location.reload();
+    }
 })
