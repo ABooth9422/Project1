@@ -27,6 +27,8 @@ button{
 }
 .modal-content{
   width:fit-content;
+  opacity:0.80;
+  background-color:black;
 }
 @media screen and (max-width:500px) {
   #intro {
