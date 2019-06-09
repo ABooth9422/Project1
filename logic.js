@@ -32,7 +32,7 @@ function pull(cityVal, tattooStyle) {
     }).then(function (response) {
         var businessArray = response.businesses;
         var styleArray = ["newSchool", "traditional", "realism", "script", "watercolor"]
-
+        console.log(response)
         for (let i = 0; i < businessArray.length; i++) {
             var style = styleArray[Math.floor(Math.random() * styleArray.length)];
             database.ref(businessArray[i].id + "/").set({
@@ -42,6 +42,7 @@ function pull(cityVal, tattooStyle) {
                 ratings: businessArray[i].rating,
                 reviewCount: businessArray[i].review_count,
                 thumbnail: businessArray[i].image_url,
+                address:businessArray[i].location.display_address,
                 style: style
             })
 
@@ -59,31 +60,33 @@ function pull(cityVal, tattooStyle) {
                 row.addClass("results")
                 var image=$("<img src= still image'>")
                 image.addClass("img-thumbnail")
+                image.addClass("test")
                 image.attr("src", sv.thumbnail)
                 var ul=$("<ul>")
                 var name = $("<h5>")
                 name.text("Shop Name: "+sv.name)
+                var address=$("<h5>")
+                address.text(sv.address[0])
+                var address2=$("<h5>")
+                address2.text(sv.address[1])
                 var phone=$("<h5>")
                 phone.text("Phone: "+sv.phone)
                 var rating=$("<h5>")
                 rating.text("Rating: "+ sv.ratings)
                 var reviewCount=$("<h5>")
                 reviewCount.text("Reviews: " +sv.reviewCount)
-                var newBackground =$("#body").css({
-                    "background": "url(../Project1/images/backgroundInk.jpg)"
-                })
-            
                 var button=$("<button>")
                 button.addClass("btn btn-secondary")
                 button.addClass("resultButton")
-                $(".resultButton").on("click",function(){
-                    moreResults(sv.id)
-                })
                 button.attr("data-target",".moreImages")
                 button.attr("data-toggle","modal")
                 button.text("click for more pictures!")
-
-                ul.append(name,phone,rating,reviewCount,button)
+                $(".resultButton").on("click",function(){
+                    moreResults(sv.id)
+                })
+            
+           
+                ul.append(name,address,address2,phone,rating,reviewCount,button)
                 row.append(image,ul)
                 row.appendTo("#resultsDiv")
             }
@@ -110,8 +113,9 @@ function moreResults(id){
             var moreImages=$("<img src= still image'>")
             moreImages.attr("src",response.photos[index])
             moreImages.addClass("img-thumbnail")
-            moreImages.appendTo($(".modal-content"))
-            } 
+            moreImages.addClass("mx-2 my-2")
+            moreImages.appendTo($("#modalRow"))
+            }
         }
     );
     
