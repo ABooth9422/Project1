@@ -9,16 +9,18 @@ $(document).ready(function () {
             value:'1turn',
             easing: 'easeInOutSine',
             delay:1000
-        },
-       //animation of the tattoo4u symbol on the page
+        },   
     });
+     //animation of the tattoo4u symbol on the page
+
+     //putting our functions into place as the page loads to make sure that the elements are shown and hidden properly
     load();
     start();
     citySelect();
     back();
     finalSelection();
     back2(event);
-    // pull();
+   
     
 
 
@@ -39,6 +41,15 @@ $(document).ready(function () {
     //after Start button is clicked
     function start() {
         $("#start").on("click", function () {
+            anime({
+                targets:'div.studentName',
+                translateY:[
+                    {value:-25,duration:1000},
+                    {value:0,duration:1000}, 
+                ],
+                delay: function(el, i, l) {
+                    return i * 200;
+             } })
             $("#intro").hide("fast");
             $("#area").fadeIn("slow");
             $("#body").css({
