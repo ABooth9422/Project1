@@ -1,6 +1,5 @@
 'use strict';
 
-
 //using firebase in the code to store variables that we are getting from the api
 var firebaseConfig = {
     apiKey: "AIzaSyBh9Wg4jgKRJrMgmm3c-qZJeYbFeLKuiog",
@@ -13,10 +12,6 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
-
-
-
-
 
 function pull(cityVal, tattooStyle) {
     // yelp url and api call for searching tattoo shops in the area specifically three
@@ -62,7 +57,55 @@ function pull(cityVal, tattooStyle) {
             var sv = snapshot.val();
             console.log(sv)
             if (sv.style === tattooStyle) {
+<<<<<<< HEAD
               createContent(sv)
+=======
+                var row = $("<div>")
+                row.addClass("container")
+                row.addClass("my-5")
+                row.addClass("results")
+                var image = $("<img src= still image'>")
+                image.addClass("img-thumbnail")
+                image.attr("src", sv.thumbnail)
+                var ul = $("<ul>")
+                ul.addClass("mx-5")
+                var name = $("<h5>")
+                name.text("Shop Name: " + sv.name)
+                var address = $("<h5>")
+                address.text(sv.address[0])
+                var address2 = $("<h5>")
+                address2.text(sv.address[1])
+                var phone = $("<h5>")
+                phone.text("Phone: " + sv.phone)
+                var rating = $("<h5>")
+                rating.text("Rating: " + sv.ratings)
+                var reviewCount = $("<h5>")
+                reviewCount.text("Reviews: " + sv.reviewCount)
+                var button = $("<button>")
+                button.addClass("btn btn-secondary")
+                button.addClass("resultButton")
+
+                button.data("id", sv.id)
+                button.attr("data-target", ".moreImages")
+                button.attr("data-toggle", "modal")
+                button.text("Click for more pictures!")
+
+                var mapButton = $("<button>")
+                mapButton.addClass("clickMap")
+                mapButton.addClass("btn btn-secondary mx-2")
+                mapButton.attr("data-target", ".moreImages")
+                mapButton.attr("data-toggle", "modal")
+                mapButton.text("Click for the Map")
+                mapButton.data("latitude", sv.latitude)
+                mapButton.data("longitude", sv.longitude)
+
+                  //using child added and snapshot fucntion to retrieve business names, reviews, pictures through pressing buttons
+                //added buttons to get map location and click for map and added variables to place tattoo shop information on page
+
+                ul.append(name, address, address2, phone, rating, reviewCount, button, mapButton)
+                row.append(image, ul)
+                row.appendTo("#resultsDiv")
+>>>>>>> 12595dd94f19d646a8dfe8f6c51742611aa84e82
             }
         })
     })
@@ -87,7 +130,6 @@ $(document).on("click", ".clickMap", function () {
 })
 
 function moreResults(id) {
-
     let id1 = id;
     var queryId1 = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/" + id1;
     $("#modalRow").empty();
@@ -113,7 +155,7 @@ function moreResults(id) {
     });
 
 }
-//a function used to display the map in the modal
+//function used to display the map in the modal
 function initMap(latitude, longitude) {
    console.log(latitude)
    console.log(longitude)

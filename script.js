@@ -21,9 +21,6 @@ $(document).ready(function () {
     finalSelection();
     back2(event);
    
-    
-
-
     //when the Back button is clicked from 2nd "page"
     function back() {
         $("#goBack").on("click", function () {
