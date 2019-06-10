@@ -1,6 +1,5 @@
 'use strict';
 
-
 //using firebase in the code to store variables that we are getting from the api
 var firebaseConfig = {
     apiKey: "AIzaSyBh9Wg4jgKRJrMgmm3c-qZJeYbFeLKuiog",
@@ -13,10 +12,6 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
-
-
-
-
 
 function pull(cityVal, tattooStyle) {
     // yelp url and api call for searching tattoo shops in the area specifically three
@@ -90,7 +85,7 @@ function pull(cityVal, tattooStyle) {
                 button.data("id", sv.id)
                 button.attr("data-target", ".moreImages")
                 button.attr("data-toggle", "modal")
-                button.text("click for more pictures!")
+                button.text("Click for more pictures!")
 
                 var mapButton = $("<button>")
                 mapButton.addClass("clickMap")
@@ -131,7 +126,6 @@ $(document).on("click", ".clickMap", function () {
 })
 
 function moreResults(id) {
-
     let id1 = id;
     var queryId1 = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/" + id1;
     $("#modalRow").empty();
@@ -157,7 +151,7 @@ function moreResults(id) {
     });
 
 }
-//a function used to display the map in the modal
+//function used to display the map in the modal
 function initMap(latitude, longitude) {
    console.log(latitude)
    console.log(longitude)
