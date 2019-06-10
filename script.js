@@ -10,7 +10,7 @@ $(document).ready(function () {
             easing: 'easeInOutSine',
             delay:1000
         },
-       
+       //animation of the tattoo4u symbol on the page
     });
     load();
     start();

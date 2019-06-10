@@ -1,7 +1,7 @@
 'use strict';
+//indicate that the code should be executed in "strict mode"
 
-
-
+//firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyBh9Wg4jgKRJrMgmm3c-qZJeYbFeLKuiog",
     authDomain: "tattoo4u-1.firebaseapp.com",
@@ -11,7 +11,9 @@ var firebaseConfig = {
     messagingSenderId: "773493730411",
     appId: "1:773493730411:web:61f541ef89821a05"
 };
+//initialize Firebase
 firebase.initializeApp(firebaseConfig);
+//create a variable to reference database
 var database = firebase.database();
 
 
@@ -20,18 +22,22 @@ var database = firebase.database();
 
 function pull(cityVal, tattooStyle) {
     var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=tattoos&location=" + cityVal;
-
+// yelp url and api call for searching tattoo shops in the area specifically three
     $.ajax({
-
+        //getting yelp ajax call
         headers: {
+            //yelp  personal authorization key
             Authorization: "BEARER pggyYPUFjKRZwKGVB3XiuwMO0wrXgQxau8y3DZW7geuRWY4AgHMklAati700_uZcpaX7LA92bSIxf8YgoYZpI4VBB1dVtoGUgTivNlASsTnoL8Nr1ZxNM90NNSP1XHYx",
         },
         url: queryURL,
 
         method: "GET"
+        //using GET method
+        // call a method "then" for function to use as the callbacks
     }).then(function (response) {
         var businessArray = response.businesses;
         var styleArray = ["newSchool", "traditional", "realism", "script", "watercolor"]
+        //array for different types of tattoos
         console.log(response)
         for (let i = 0; i < businessArray.length; i++) {
             var style = styleArray[Math.floor(Math.random() * styleArray.length)];
@@ -47,6 +53,8 @@ function pull(cityVal, tattooStyle) {
                 longitude:businessArray[i].coordinates.longitude,
                 style: style
             })
+            //using business array and forloop to attain a random amount of business from three different areas
+            //also pulling location name of business phone rating and review count
             
 
 
@@ -87,6 +95,7 @@ function pull(cityVal, tattooStyle) {
                 $(".resultButton").on("click",function(){
                     moreResults(sv.id)
                 })
+                //added buttons to get picturess and reviews
                 var mapButton=$("<button>")
                 mapButton.attr("id","clickMap")
                 mapButton.addClass("btn btn-secondary mx-2")
@@ -98,8 +107,8 @@ function pull(cityVal, tattooStyle) {
                     console.log(sv.longitude)
                     initMap(sv.latitude,sv.longitude)
                 })
-
-           
+                //using child added and snapshot fucntion to retrieve business names, reviews, pictures through pressing buttons
+                //added buttons to get map location and click for map and added variables to place tattoo shop information on page
                 ul.append(name,address,address2,phone,rating,reviewCount,button,mapButton)
                 row.append(image,ul)
                 row.appendTo("#resultsDiv")
@@ -114,7 +123,7 @@ function moreResults(id){
     var queryId1 = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/" + id1;
     
     $.ajax({
-    
+    //ajax call for yelp authorization key and tattoo businesses in area
       headers: {
             Authorization: "BEARER pggyYPUFjKRZwKGVB3XiuwMO0wrXgQxau8y3DZW7geuRWY4AgHMklAati700_uZcpaX7LA92bSIxf8YgoYZpI4VBB1dVtoGUgTivNlASsTnoL8Nr1ZxNM90NNSP1XHYx",
         },
@@ -129,6 +138,7 @@ function moreResults(id){
             moreImages.addClass("img-thumbnail")
             moreImages.addClass("mx-2 my-2")
             moreImages.appendTo($("#modalRow"))
+            // variable more images to get different images from the yelp search 
             }
         }
     );
@@ -137,3 +147,4 @@ function moreResults(id){
 function initMap(latitude,longitude) {
    // https://maps.googleapis.com/maps/api/staticmap?center=40.714%2c%20-73.998&zoom=12&size=400x400&key=YOUR_API_KEY
 }
+//api key for map location on google maps and created a function to achieve exact latitudes and longitudes
