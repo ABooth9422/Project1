@@ -13,7 +13,7 @@ $(document).ready(function () {
     });
      //animation of the tattoo4u symbol on the page
 
-     //putting our functions into place as the page loads to make sure that the elements are shown and hidden properly
+     //putting our functions into place as the page loads to make sure that the elements are shown and hidden
     load();
     start();
     citySelect();
