@@ -7,6 +7,43 @@ body {
 }
 
 button,
-.shade {
+.shade,
+.img-thumbnail {
   box-shadow: 5px 5px 5px black;
+}
+button{
+  opacity:0.85;
+}
+#intro{
+  padding:200px;
+}
+.img-thumbnail{
+  width:200px;
+  height:200px;
+}
+.results{
+  display:flex;
+  flex-wrap:wrap;
+}
+.modal-content{
+  width:fit-content;
+  opacity:0.80;
+  background-color:black;
+}
+#map {
+  width: 400px;
+  height: 400px;
+  background-color: grey;
+}
+@media screen and (max-width:500px) {
+  #intro {
+    padding:200px 0px 0px 0px;
+  }
+  #area{
+    width:fit-content;
+  }
+ 
+  #city{
+    width:100%;
+  }
 }

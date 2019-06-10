@@ -5,23 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../Project1/style.css">
     <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
+<<<<<<< HEAD
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 
+=======
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+>>>>>>> 12595dd94f19d646a8dfe8f6c51742611aa84e82
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="manifest" href="images/site.webmanifest">
-
+    <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
+    <!-- Bootstrap-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
@@ -33,15 +41,23 @@
     <div class="shade">
         <nav class="navbar navbar-dark bg-dark rounded" style="width:100%;">
             <a class="navbar-brand text-white" href="#">
+                <div class="logo">
                 <img src="../Project1/images/tattoologo.jpg" class="mx-3 rounded-pill" width="200" height="40">
+            </div>
             </a>
         </nav>
     </div>
     <div id="intro" class="text-center">
+<<<<<<< HEAD
         <h5 class="text-white" style="font-size:48px;"> Lets get started!</h5>
+=======
+        <h5 class="text-white" style="font-size:48px;">Let's get started!</h5>
+>>>>>>> 12595dd94f19d646a8dfe8f6c51742611aa84e82
         <button type="button" id="start" class="btn btn-secondary">Click here to start</button>
     </div>
+
     <div container id="area" class="text-center text-white font-weight-bold container-fluid" style="padding:150px;">
+<<<<<<< HEAD
         <p> Welcome to Tattoo4U! Our mission is to pair you with a local artist that specializes in the kind of tattoo
             you are looking to get done.
             We will take into consideration style and location.
@@ -51,6 +67,16 @@
         <h5 class="text-white display-4">Choose you location</h5>
         <select class="custom-select" id="city" style="width:30%;">
             <option selected>Shop Location:</option>
+=======
+        <h5 class="text-white text-center font-weight-bold">Welcome to Tattoo4U! Our mission is to pair you with a local
+            artist that specializes in the kind of tattoo
+            you are looking to get done. Enter the location and style you want and we'll show you the best local shops
+            in the area with their ratings and customer reviews.
+        </h5>
+        <h5 class="text-white display-4">Choose your location.</h5>
+        <select class="custom-select" id="city" style="width:fit-content;">
+            <option selected>Shop Location</option>
+>>>>>>> 12595dd94f19d646a8dfe8f6c51742611aa84e82
             <option value="matthewsNC">Matthews</option>
             <option value="midwoodNC">Plaza-Midwood</option>
             <option value="davidsonNC">Davidson</option>
@@ -61,12 +87,19 @@
     </div>
     <div class="container-fluid d-flex justify-content-center">
         <h5 class="text-white text-center font-weight-bold" id="imageParagraph"
+<<<<<<< HEAD
             style="padding:50px 0px 20px 0px;width:50%;">Use the following Array of images to
             select the type of style you would like for your tattoo. It's important that you think about the style of
             what you want.
             Choose wisely! It should be something that you can see yourself wearing for the rest of your life!
         </h5>
 
+=======
+            style="padding:50px 0px 20px 0px;width:50%;">Look through the carousel of images to select the style you
+            would like for your tattoo. It's important that you think about the style you want. Choose wisely something
+            that you can see yourself wearing the rest of your life! You can choose:
+        </h5>
+>>>>>>> 12595dd94f19d646a8dfe8f6c51742611aa84e82
     </div>
     <div class="container-fluid d-flex justify-content-center">
         <div id="lastInput">
@@ -84,9 +117,13 @@
         </div>
     </div>
     <div class="container-fluid d-flex justify-content-center mb-5" id="imageCarousel">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 12595dd94f19d646a8dfe8f6c51742611aa84e82
         <div class="bd-example">
-            <div id="carouselTattoo" class="carousel slide my-3" data-ride="carousel" style="width:500px;height:500px;">
+            <div id="carouselTattoo" class="carousel slide my-3" data-ride="carousel"
+                style="width:500px; height:500px;">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselTattoo" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselTattoo" data-slide-to="1"></li>
@@ -99,14 +136,14 @@
                         <img src="../Project1/images/traditional.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Traditional Tattoo</h5>
-                            <p>Example of a traditional style Tattoo</p>
+                            <p>Example of a traditional style tattoo</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="../Project1/images/newschool.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>New School Tattoo</h5>
-                            <p>Example of a new school Tattoo</p>
+                            <p>Example of a new school tattoo</p>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -121,6 +158,7 @@
                         <div class="carousel-caption d-none d-md-block">
                             <h5> Script tattoo</h5>
                             <p>Example of expert lettering</p>
+<<<<<<< HEAD
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -131,6 +169,17 @@
                         </div>
                     </div>
 
+=======
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../Project1/images/watercolor.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Watercolor</h5>
+                            <p>Example of watercolor tattoo</p>
+                        </div>
+                    </div>
+>>>>>>> 12595dd94f19d646a8dfe8f6c51742611aa84e82
                 </div>
                 <a class="carousel-control-prev" href="#carouselTattoo" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -143,6 +192,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <div class="container-fluid d-flex justify-content-center mb-5" id="resultsDiv">
         <div id="result1">
             <div class="row" id="initialResult1">
@@ -217,19 +267,43 @@
             </div>
         </div>
     </div>
-    <br>
-    <br>
+=======
 
+    <div class="modal fade moreImages" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content"id="modal">
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"style="width:5%;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+          
+            <div class="row d-flex justify-content-center"id="modalRow">
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid text-center mb-5 text-white" id="resultsDiv">
+    </div>
+    <div class="container-fluid text-center">
+    <button type="button" id="newSearch" class="btn btn-secondary btn-lg mb-5">Start New Search!</button>
+</div>  
+>>>>>>> 12595dd94f19d646a8dfe8f6c51742611aa84e82
+    <br>
+    <br>
+    <script async defersrc="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZiN6dOZ6o7JKMKtx3NdTKnDf1Lu1ynw4&callback=initMap"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
     <script src="script.js"></script>
     <script src="logic.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    </script>
 </body>
-<footer>
 
+<footer>
     <div class="card text-center rounded-pill fixed-bottom bg-dark mt-3">
         <div class="card-footer text-white font-weight-bold">
             <div class="row">
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+<<<<<<< HEAD
                     <div class="img" id="Aaron"><a href="https://abooth9422.github.io/" target="_blank"><img
                                 src="../Project1/images/git.png" class="rounded-circle" width="40"
                                 height="40"></a><label for="Aaron" class="mx-4">Aaron Booth</label></div>
@@ -251,10 +325,42 @@
                                 src="../Project1/images/git4.png" class="rounded-circle" width="40"
                                 height="40"></a><label for="Alicia" class="mx-4">Alicia Tamboli</label></div>
 
+=======
+                    <div class="studentName">
+                    <div class="img" id="Aaron"><a href="https://abooth9422.github.io/" target="_blank">
+                            <img src="../Project1/images/git.png" class="rounded-circle" width="40" height="40"></a>
+                        <label class="mx-4">Aaron Booth</label>
+                    </div>
                 </div>
             </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <div class="studentName">
+                    <div class="img" id="Robbi"><a href="https://rmwalls.github.io/" target="_blank">
+                            <img src="../Project1/images/git2.png" class="rounded-circle" width="40" height="40"></a>
+                        <label class="mx-4">Robbi Walls</label>
+                    </div>
+                </div>
+            </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <div class="studentName">
+                    <div class="img" id="Griffin"><a href="https://griffinth.github.io/" target="_blank">
+                            <img src="../Project1/images/git3.png" class="rounded-circle" width="40" height="40"></a>
+                        <label class="mx-4">Griffin Hume</label>
+                    </div>
+                </div>
+            </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <div class="studentName">
+                    <div class="img" id="Alicia"><a href="https://atamboli4718.github.io/Bootstrap-Portfolio/"
+                            target="_blank">
+                            <img src="../Project1/images/git4.png" class="rounded-circle" width="40" height="40"></a>
+                        <label class="mx-4">Alicia Tamboli</label>
+                    </div>
+>>>>>>> 12595dd94f19d646a8dfe8f6c51742611aa84e82
+                </div>
+            </div>
+            </div>
         </div>
-
     </div>
 </footer>
 
