@@ -17,8 +17,8 @@ var database = firebase.database();
 
 
 function pull(cityVal) {
-    var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=tattoos&location=" + cityVal;
-
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=5&term=tattoos&location=" + cityVal;
+    
     $.ajax({
 
       headers: {
@@ -85,7 +85,7 @@ function pull(cityVal) {
 }
 
 function pull2() {
-    var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=tattoos&location=Matthews";
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=5&term=tattoos&location=Matthews"; 
 
     $.ajax({
 
