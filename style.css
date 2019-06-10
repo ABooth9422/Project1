@@ -30,8 +30,20 @@ button{
   opacity:0.80;
   background-color:black;
 }
+#map {
+  width: 400px;
+  height: 400px;
+  background-color: grey;
+}
 @media screen and (max-width:500px) {
   #intro {
     padding:200px 0px 0px 0px;
+  }
+  #area{
+    width:fit-content;
+  }
+ 
+  #city{
+    width:100%;
   }
 }
