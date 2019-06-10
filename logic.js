@@ -43,9 +43,11 @@ function pull(cityVal, tattooStyle) {
                 reviewCount: businessArray[i].review_count,
                 thumbnail: businessArray[i].image_url,
                 address:businessArray[i].location.display_address,
+                latitude:businessArray[i].coordinates.latitude,
+                longitude:businessArray[i].coordinates.longitude,
                 style: style
             })
-
+            
 
 
 
@@ -60,9 +62,9 @@ function pull(cityVal, tattooStyle) {
                 row.addClass("results")
                 var image=$("<img src= still image'>")
                 image.addClass("img-thumbnail")
-                image.addClass("test")
                 image.attr("src", sv.thumbnail)
                 var ul=$("<ul>")
+                ul.addClass("mx-5")
                 var name = $("<h5>")
                 name.text("Shop Name: "+sv.name)
                 var address=$("<h5>")
@@ -78,15 +80,27 @@ function pull(cityVal, tattooStyle) {
                 var button=$("<button>")
                 button.addClass("btn btn-secondary")
                 button.addClass("resultButton")
+                button.attr("id",sv.name)
                 button.attr("data-target",".moreImages")
                 button.attr("data-toggle","modal")
                 button.text("click for more pictures!")
                 $(".resultButton").on("click",function(){
                     moreResults(sv.id)
                 })
-            
+                var mapButton=$("<button>")
+                mapButton.attr("id","clickMap")
+                mapButton.addClass("btn btn-secondary mx-2")
+                mapButton.attr("data-target",".moreMap")
+                mapButton.attr("data-toggle","modal")
+                mapButton.text("Click for the Map")
+                $("#clickMap").on("click",function(){
+                    console.log(sv.latitude)
+                    console.log(sv.longitude)
+                    initMap(sv.latitude,sv.longitude)
+                })
+
            
-                ul.append(name,address,address2,phone,rating,reviewCount,button)
+                ul.append(name,address,address2,phone,rating,reviewCount,button,mapButton)
                 row.append(image,ul)
                 row.appendTo("#resultsDiv")
             }
@@ -120,5 +134,6 @@ function moreResults(id){
     );
     
 }
-
-
+function initMap(latitude,longitude) {
+   // https://maps.googleapis.com/maps/api/staticmap?center=40.714%2c%20-73.998&zoom=12&size=400x400&key=YOUR_API_KEY
+}

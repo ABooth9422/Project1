@@ -36,7 +36,9 @@
     <div class="shade">
         <nav class="navbar navbar-dark bg-dark rounded" style="width:100%;">
             <a class="navbar-brand text-white" href="#">
+                <div class="logo">
                 <img src="../Project1/images/tattoologo.jpg" class="mx-3 rounded-pill" width="200" height="40">
+            </div>
             </a>
         </nav>
     </div>
@@ -52,7 +54,7 @@
             in the area with their ratings and customer reviews.
         </h5>
         <h5 class="text-white display-4">Choose your location.</h5>
-        <select class="custom-select" id="city" style="width:30%;">
+        <select class="custom-select" id="city" style="width:fit-content;">
             <option selected>Shop Location</option>
             <option value="matthewsNC">Matthews</option>
             <option value="midwoodNC">Plaza-Midwood</option>
@@ -166,9 +168,13 @@
 </div>  
     <br>
     <br>
+    <script async defersrc="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZiN6dOZ6o7JKMKtx3NdTKnDf1Lu1ynw4&callback=initMap"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
     <script src="script.js"></script>
     <script src="logic.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    </script>
 </body>
 
 <footer>
