@@ -75,11 +75,11 @@
         <div id="lastInput">
             <select class="custom-select" id="tattooInput" style="width:100%;">
                 <option selected>Which tattoo style did you decide on?</option>
-                <option value="traditional">Traditional</option>
-                <option value="newSchool">New School</option>
-                <option value="realism">Realism</option>
-                <option value="script">Script</option>
-                <option value="watercolor">Watercolor</option>
+                <option value="traditional"id="Traditional Tattoo">Traditional</option>
+                <option value="newSchool" id="New School Tattoo">New School</option>
+                <option value="realism" id="Realism Tattoo">Realism</option>
+                <option value="script" id="Script Tattoo">Script</option>
+                <option value="watercolor" id="Watercolor Tattoo">Watercolor</option>
             </select>
             <br>
             <button type="button" id="tatSubmit" class="btn btn-secondary btn-lg my-2">Submit</button>
@@ -102,14 +102,14 @@
                         <img src="../Project1/images/traditional.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Traditional Tattoo</h5>
-                            <p>Example of a traditional style tattoo</p>
+                            <p>Example of a traditional style Tattoo</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="../Project1/images/newschool.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>New School Tattoo</h5>
-                            <p>Example of a new school tattoo</p>
+                            <p>Example of a new school Tattoo</p>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -130,7 +130,7 @@
                         <img src="../Project1/images/watercolor.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Watercolor</h5>
-                            <p>Example of watercolor tattoo</p>
+                            <p>Example of Watercolor</p>
                         </div>
                     </div>
                 </div>
@@ -146,15 +146,18 @@
         </div>
     </div>
 
-    <div class="modal fade moreImages" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade moreImages" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content "id="modal">
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"style="width:5%;">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                        <span aria-hidden="true">&times;</span>
+                      </button>
           
             <div class="row d-flex justify-content-center"id="modalRow">
+
             </div>
+             
+          
         </div>
       </div>
     </div>
@@ -182,7 +185,7 @@
                     <div class="studentName">
                     <div class="img" id="Aaron"><a href="https://abooth9422.github.io/" target="_blank">
                             <img src="../Project1/images/git.png" class="rounded-circle" width="40" height="40"></a>
-                        <label class="mx-4">Aaron Booth</label>
+                        <label for="Aaron" class="mx-4">Aaron Booth</label>
                     </div>
                 </div>
             </div>
@@ -190,7 +193,7 @@
                     <div class="studentName">
                     <div class="img" id="Robbi"><a href="https://rmwalls.github.io/" target="_blank">
                             <img src="../Project1/images/git2.png" class="rounded-circle" width="40" height="40"></a>
-                        <label class="mx-4">Robbi Walls</label>
+                        <label for="Robbi" class="mx-4">Robbi Walls</label>
                     </div>
                 </div>
             </div>
@@ -198,7 +201,7 @@
                     <div class="studentName">
                     <div class="img" id="Griffin"><a href="https://griffinth.github.io/" target="_blank">
                             <img src="../Project1/images/git3.png" class="rounded-circle" width="40" height="40"></a>
-                        <label class="mx-4">Griffin Hume</label>
+                        <label for="Griffin" class="mx-4">Griffin Hume</label>
                     </div>
                 </div>
             </div>
@@ -207,7 +210,7 @@
                     <div class="img" id="Alicia"><a href="https://atamboli4718.github.io/Bootstrap-Portfolio/"
                             target="_blank">
                             <img src="../Project1/images/git4.png" class="rounded-circle" width="40" height="40"></a>
-                        <label class="mx-4">Alicia Tamboli</label>
+                        <label for="Alicia" class="mx-4">Alicia Tamboli</label>
                     </div>
                 </div>
             </div>
