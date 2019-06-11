@@ -47,7 +47,10 @@ button{
   #area{
     width:fit-content;
   }
- 
+  .results{
+  display:block;
+  flex-wrap:nowrap;
+  }
   #city{
     width:100%;
   }

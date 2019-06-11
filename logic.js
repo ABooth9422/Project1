@@ -32,6 +32,7 @@ function pull(cityVal, tattooStyle) {
         var styleArray = ["newSchool", "traditional", "realism", "script", "watercolor"]
         console.log(response)
         for (let i = 0; i < businessArray.length; i++) {
+
             var style = styleArray[Math.floor(Math.random() * styleArray.length)];
             database.ref(businessArray[i].id + "/").set({
                 id: businessArray[i].id,
@@ -51,6 +52,10 @@ function pull(cityVal, tattooStyle) {
 
 
         }
+       
+        rowExplanation();
+     
+
         database.ref().on("child_added", function (snapshot) {
             //when a child is added we are checking to see if it matches the users choice of style
             //if it does we are dynamically creating all of these elements on the page
@@ -68,6 +73,13 @@ $(document).on("click", ".resultButton", function () {
     console.log($(this))
     var id = $(this).data("id")
     console.log(id)
+    moreResults(id)
+})
+$(document).on("click", ".imgModal", function () {
+    //we are getting the id from the button we stored the value i
+   
+    var id = $(this).data("id")
+    
     moreResults(id)
 })
 //on click function for the clickMap function
@@ -164,7 +176,11 @@ function createContent(sv){
     row.addClass("results")
     var image = $("<img src= still image'>")
     image.addClass("img-thumbnail")
+    image.addClass("imgModal")
     image.attr("src", sv.thumbnail)
+    image.attr("data-target", ".moreImages")
+    image.attr("data-toggle", "modal")
+    image.data("id", sv.id)
     var ul = $("<ul>")
     ul.addClass("mx-5")
     var name = $("<h5>")
@@ -181,7 +197,7 @@ function createContent(sv){
     var reviewCount = $("<h5>")
     reviewCount.text("Reviews: " + sv.reviewCount)
     var button = $("<button>")
-    button.addClass("btn btn-secondary")
+    button.addClass("btn btn-secondary my-2")
     button.addClass("resultButton")
 
     button.data("id", sv.id)
@@ -191,7 +207,7 @@ function createContent(sv){
 
     var mapButton = $("<button>")
     mapButton.addClass("clickMap")
-    mapButton.addClass("btn btn-secondary mx-2")
+    mapButton.addClass("btn btn-secondary mx-2 my-2")
     mapButton.attr("data-target", ".moreImages")
     mapButton.attr("data-toggle", "modal")
     mapButton.text("Click for the Map")
@@ -200,7 +216,7 @@ function createContent(sv){
     var reviewButton=$("<button>")
     reviewButton.data("id",sv.id)
     reviewButton.attr("data-target", ".moreImages")
-    reviewButton.addClass("btn btn-secondary mx-2")
+    reviewButton.addClass("btn btn-secondary mx-2 my-2")
     reviewButton.addClass("clickReview")
     reviewButton.attr("data-toggle", "modal")
     reviewButton.text("Reviews")
@@ -237,4 +253,17 @@ function reviewStars(ratings,stars){
         stars.attr("src","../Project1/yelpStars/small_5.png")
     }
 
+}
+
+function rowExplanation(){
+    
+    var rowExplanation = $("<div>")
+    rowExplanation.addClass("container")
+    rowExplanation.addClass("h1")
+    rowExplanation.addClass("my-5")
+    rowExplanation.css({"text-decoration":"underline"})
+    var tattooData=$("#tattooInput").find('option:selected').attr('id')
+    console.log(tattooData)
+    rowExplanation.text("Shops that cater to " +tattooData+ " style tattoos")
+    rowExplanation.prependTo("#resultsDiv")
 }
