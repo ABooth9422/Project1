@@ -1,4 +1,5 @@
 $(document).ready(function () {
+   
     anime({
         targets:'div.logo',
         translateX:[
@@ -13,7 +14,7 @@ $(document).ready(function () {
     });
      //animation of the tattoo4u symbol on the page
 
-     //putting our functions into place as the page loads to make sure that the elements are shown and hidden properly
+     //putting our functions into place as the page loads to make sure that the elements are shown and hidden
     load();
     start();
     citySelect();
@@ -21,12 +22,10 @@ $(document).ready(function () {
     finalSelection();
     back2(event);
    
-    
-
-
     //when the Back button is clicked from 2nd "page"
     function back() {
         $("#goBack").on("click", function () {
+            $("#modalRow").empty();
             $("#area").hide("fast");
             $("#carouselTattoo").hide("fast");
             $("#imageParagraph").hide("fast");
@@ -71,6 +70,17 @@ $(document).ready(function () {
     // after city is selected and Submit clicked
     function citySelect() {
         $("#citySubmit").on("click", function () {
+            if($("#city").val()==="Shop Location"){
+                $("#citySubmit").attr("data-target", ".moreImages")
+                $("#citySubmit").attr("data-toggle", "modal")
+                var denied=$("<h3>")
+                denied.text("Make a selection to continue!")
+                denied.appendTo("#modalRow")
+            return
+            }else    
+            $("#modalRow").empty();
+            $("#citySubmit").removeAttr("data-target")
+            $("#citySubmit").removeAttr("data-toggle")
             $("#area").hide("fast");
             $("#carouselTattoo").fadeIn("slow");
             $("#lastInput").fadeIn("slow");
@@ -78,14 +88,27 @@ $(document).ready(function () {
             $("#body").css({
                 "background": "url(../Project1/images/backgroundShop2.jpg)"
             })
-            
+         
         })
+    
 
     }
 
     //after tattoo style selected and Submit button clicked
     function finalSelection() {
         $("#tatSubmit").on("click", function () {
+            console.log($("#tattooInput").val())
+            if($("#tattooInput").val()==="Which tattoo style did you decide on?"){
+            $("#tatSubmit").attr("data-target", ".moreImages")
+            $("#tatSubmit").attr("data-toggle", "modal")
+            var denied=$("<h3>")
+            denied.text("Make a selection to continue!")
+            denied.appendTo("#modalRow")
+                return;
+            }else
+            $("#modalRow").empty();
+            $("#tatSubmit").removeAttr("data-target")
+            $("#tatSubmit").removeAttr("data-toggle")
             $("#area").hide("fast");
             $("#carouselTattoo").hide("fast");
             $("#imageParagraph").hide("fast");
@@ -103,6 +126,7 @@ $(document).ready(function () {
     //after Back button is clicked on third "page"
     function back2() {
         $("#goBack2").on("click", function () {
+            $("#modalRow").empty();
             $("#intro").hide("fast");
             $("#area").fadeIn("slow");
             $("#body").css({

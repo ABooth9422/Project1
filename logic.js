@@ -1,7 +1,6 @@
 'use strict';
 //indicate that the code should be executed in "strict mode"
 
-
 //using firebase in the code to store variables that we are getting from the api
 var firebaseConfig = {
     apiKey: "AIzaSyBh9Wg4jgKRJrMgmm3c-qZJeYbFeLKuiog",
@@ -16,10 +15,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 //create a variable to reference database
 var database = firebase.database();
-
-
-
-
 
 function pull(cityVal, tattooStyle) {
     // yelp url and api call for searching tattoo shops in the area specifically three
@@ -42,6 +37,7 @@ function pull(cityVal, tattooStyle) {
         //array for different types of tattoos
         console.log(response)
         for (let i = 0; i < businessArray.length; i++) {
+
             var style = styleArray[Math.floor(Math.random() * styleArray.length)];
             database.ref(businessArray[i].id + "/").set({
                 id: businessArray[i].id,
@@ -61,57 +57,17 @@ function pull(cityVal, tattooStyle) {
 
 
         }
+       
+        rowExplanation();
+     
+
         database.ref().on("child_added", function (snapshot) {
             //when a child is added we are checking to see if it matches the users choice of style
             //if it does we are dynamically creating all of these elements on the page
             var sv = snapshot.val();
             console.log(sv)
             if (sv.style === tattooStyle) {
-                var row = $("<div>")
-                row.addClass("container")
-                row.addClass("my-5")
-                row.addClass("results")
-                var image = $("<img src= still image'>")
-                image.addClass("img-thumbnail")
-                image.attr("src", sv.thumbnail)
-                var ul = $("<ul>")
-                ul.addClass("mx-5")
-                var name = $("<h5>")
-                name.text("Shop Name: " + sv.name)
-                var address = $("<h5>")
-                address.text(sv.address[0])
-                var address2 = $("<h5>")
-                address2.text(sv.address[1])
-                var phone = $("<h5>")
-                phone.text("Phone: " + sv.phone)
-                var rating = $("<h5>")
-                rating.text("Rating: " + sv.ratings)
-                var reviewCount = $("<h5>")
-                reviewCount.text("Reviews: " + sv.reviewCount)
-                var button = $("<button>")
-                button.addClass("btn btn-secondary")
-                button.addClass("resultButton")
-
-                button.data("id", sv.id)
-                button.attr("data-target", ".moreImages")
-                button.attr("data-toggle", "modal")
-                button.text("click for more pictures!")
-
-                var mapButton = $("<button>")
-                mapButton.addClass("clickMap")
-                mapButton.addClass("btn btn-secondary mx-2")
-                mapButton.attr("data-target", ".moreImages")
-                mapButton.attr("data-toggle", "modal")
-                mapButton.text("Click for the Map")
-                mapButton.data("latitude", sv.latitude)
-                mapButton.data("longitude", sv.longitude)
-
-                  //using child added and snapshot fucntion to retrieve business names, reviews, pictures through pressing buttons
-                //added buttons to get map location and click for map and added variables to place tattoo shop information on page
-
-                ul.append(name, address, address2, phone, rating, reviewCount, button, mapButton)
-                row.append(image, ul)
-                row.appendTo("#resultsDiv")
+                createContent(sv)
             }
         })
     })
@@ -124,19 +80,64 @@ $(document).on("click", ".resultButton", function () {
     console.log(id)
     moreResults(id)
 })
+$(document).on("click", ".imgModal", function () {
+    //we are getting the id from the button we stored the value i
+   
+    var id = $(this).data("id")
+    
+    moreResults(id)
+})
 //on click function for the clickMap function
-$(document).on("click", ".clickMap", function () {
+$(document).on("click", ".clickMap", function (latitude,longitude) {
     //we are getting the values from the button that we stored
     var longitude = $(this).data("longitude")
-    console.log(longitude)
+    
     var latitude = $(this).data("latitude")
-    console.log(latitude)
     initMap(latitude, longitude)
 
 })
 
-function moreResults(id) {
+$(document).on("click",".clickReview",function(id){
 
+    var id=$(this).data("id")
+    reviewContent(id);
+
+})
+function reviewContent(id){
+    let id1 = id;
+    var queryId1 = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/"+id1+"/reviews";
+    $("#modalRow").empty();
+    
+    $.ajax({
+
+        headers: {
+            Authorization: "BEARER pggyYPUFjKRZwKGVB3XiuwMO0wrXgQxau8y3DZW7geuRWY4AgHMklAati700_uZcpaX7LA92bSIxf8YgoYZpI4VBB1dVtoGUgTivNlASsTnoL8Nr1ZxNM90NNSP1XHYx",
+        },
+        url: queryId1,
+
+        method: "GET"
+    }).then(function (response) {
+        console.log(response)
+        for (let i = 0; i < response.reviews.length; i++) {
+        var title=$("<h5>")
+        title.addClass("row")
+        title.addClass("text-center")
+        title.addClass("d-flex justify-content-center")
+        title.addClass("text-white")
+        title.text(response.reviews[i].time_created)
+        var context=$("<p>")
+        context.addClass("row")
+        context.addClass("text-center")
+        context.addClass("p-5")
+        context.addClass("text-white")
+        context.text(response.reviews[i].text)
+        title.appendTo($("#modalRow"))
+        context.appendTo($("#modalRow"))
+        
+        }
+})
+}
+function moreResults(id) {
     let id1 = id;
     var queryId1 = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/" + id1;
     $("#modalRow").empty();
@@ -162,17 +163,123 @@ function moreResults(id) {
     });
 
 }
-//a function used to display the map in the modal
+//function used to display the map in the modal
 function initMap(latitude, longitude) {
    console.log(latitude)
    console.log(longitude)
    $("#modalRow").empty();
   
-    var address = "https://www.mapquestapi.com/staticmap/v5/map?key=loorHzIG2sew2tOMV3HYNMxhCMwd8i8i&locations="+latitude+","+longitude+"&size=400,400"
+    var address = "https://www.mapquestapi.com/staticmap/v5/map?key=loorHzIG2sew2tOMV3HYNMxhCMwd8i8i&locations="+latitude+","+longitude+"&zoom=14&size=400,400"
         
         var map=$("<img src= still image'>")
         map.attr("src",address)
+        map.addClass("my-5")
         map.appendTo($("#modalRow"))
     
 }
-//api key for map location on google maps and created a function to achieve exact latitudes and longitudes
+function createContent(sv){
+    var row = $("<div>")
+    row.addClass("container")
+    row.addClass("my-5")
+    row.addClass("results")
+    var image = $("<img src= still image'>")
+    image.addClass("img-thumbnail")
+    image.addClass("imgModal")
+   
+    image.attr("src", sv.thumbnail)
+    image.attr("data-target", ".moreImages")
+    image.attr("data-toggle", "modal")
+    image.data("id", sv.id)
+    imageError();
+    var ul = $("<ul>")
+    ul.addClass("mx-5")
+    var name = $("<h5>")
+    name.text("Shop Name: " + sv.name)
+    var stars=$("<img src= still image'>")
+    reviewStars(sv,stars);
+    var address = $("<h5>")
+    address.text(sv.address[0])
+    var address2 = $("<h5>")
+    address2.text(sv.address[1])
+    var phone = $("<h5>")
+    phone.text("Phone: " + sv.phone)
+    
+    var reviewCount = $("<h5>")
+    reviewCount.text("Reviews: " + sv.reviewCount)
+    var button = $("<button>")
+    button.addClass("btn btn-secondary my-2")
+    button.addClass("resultButton")
+
+    button.data("id", sv.id)
+    button.attr("data-target", ".moreImages")
+    button.attr("data-toggle", "modal")
+    button.text("More pictures!")
+
+    var mapButton = $("<button>")
+    mapButton.addClass("clickMap")
+    mapButton.addClass("btn btn-secondary mx-2 my-2")
+    mapButton.attr("data-target", ".moreImages")
+    mapButton.attr("data-toggle", "modal")
+    mapButton.text("Click for the Map")
+    mapButton.data("latitude", sv.latitude)
+    mapButton.data("longitude", sv.longitude)
+    var reviewButton=$("<button>")
+    reviewButton.data("id",sv.id)
+    reviewButton.attr("data-target", ".moreImages")
+    reviewButton.addClass("btn btn-secondary mx-2 my-2")
+    reviewButton.addClass("clickReview")
+    reviewButton.attr("data-toggle", "modal")
+    reviewButton.text("Reviews")
+    
+      //using child added and snapshot fucntion to retrieve business names, reviews, pictures through pressing buttons
+    //added buttons to get map location and click for map and added variables to place tattoo shop information on page
+
+    ul.append(name,stars, address, address2, phone, reviewCount, button, mapButton,reviewButton)
+    row.append(image, ul)
+    row.appendTo("#resultsDiv")
+}
+
+
+
+function reviewStars(ratings,stars){
+    console.log(ratings)
+    if(ratings.ratings===1.0){
+    stars.attr("src","../Project1/yelpStars/small_1.png")
+    }else if(ratings.ratings===1.5){
+    stars.attr("src","../Project1/yelpStars/small_1_half.png")
+    }else if(ratings.ratings===2.0){
+        stars.attr("src","../Project1/yelpStars/small_2.png")
+    }else if(ratings.ratings===2.5){
+        stars.attr("src","../Project1/yelpStars/small_2_half.png")
+    }else if(ratings.ratings===3.0){
+        stars.attr("src","../Project1/yelpStars/small_3.png")
+    }else if(ratings.ratings===3.5){
+        stars.attr("src","../Project1/yelpStars/small_3_half.png")
+    }else if(ratings.ratings===4.0){
+        stars.attr("src","../Project1/yelpStars/small_4.png")
+    }else if(ratings.ratings===4.5){
+        stars.attr("src","../Project1/yelpStars/small_4_half.png")
+    }else if(ratings.ratings===5.0){
+        stars.attr("src","../Project1/yelpStars/small_5.png")
+    }
+
+}
+
+function rowExplanation(){
+    
+    var rowExplanation = $("<div>")
+    rowExplanation.addClass("container")
+    rowExplanation.addClass("h1")
+    rowExplanation.addClass("my-5")
+    rowExplanation.css({"text-decoration":"underline"})
+    var tattooData=$("#tattooInput").find('option:selected').attr('id')
+    console.log(tattooData)
+    rowExplanation.text("Shops that cater to " +tattooData+ " style tattoos")
+    rowExplanation.prependTo("#resultsDiv")
+}
+
+function imageError(){
+    $("img").on("error", function () {
+        $(this).attr("src", "../Project1/images/placeholder.png");
+      })
+}

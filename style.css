@@ -26,9 +26,13 @@ button{
   flex-wrap:wrap;
 }
 .modal-content{
-  width:fit-content;
-  opacity:0.80;
-  background-color:black;
+  
+  opacity:0.90;
+  background-color:steelblue;
+  font-weight:bold;
+  width:400px fit-content;
+
+
 }
 #map {
   width: 400px;
@@ -43,7 +47,10 @@ button{
   #area{
     width:fit-content;
   }
- 
+  .results{
+  display:block;
+  flex-wrap:nowrap;
+  }
   #city{
     width:100%;
   }
