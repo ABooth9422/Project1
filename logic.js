@@ -71,16 +71,53 @@ $(document).on("click", ".resultButton", function () {
     moreResults(id)
 })
 //on click function for the clickMap function
-$(document).on("click", ".clickMap", function () {
+$(document).on("click", ".clickMap", function (latitude,longitude) {
     //we are getting the values from the button that we stored
     var longitude = $(this).data("longitude")
-    console.log(longitude)
+    
     var latitude = $(this).data("latitude")
-    console.log(latitude)
     initMap(latitude, longitude)
 
 })
 
+$(document).on("click",".clickReview",function(id){
+
+    var id=$(this).data("id")
+    reviewContent(id);
+
+})
+function reviewContent(id){
+    let id1 = id;
+    var queryId1 = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/"+id1+"/reviews";
+    $("#modalRow").empty();
+    
+    $.ajax({
+
+        headers: {
+            Authorization: "BEARER pggyYPUFjKRZwKGVB3XiuwMO0wrXgQxau8y3DZW7geuRWY4AgHMklAati700_uZcpaX7LA92bSIxf8YgoYZpI4VBB1dVtoGUgTivNlASsTnoL8Nr1ZxNM90NNSP1XHYx",
+        },
+        url: queryId1,
+
+        method: "GET"
+    }).then(function (response) {
+        console.log(response)
+        for (let i = 0; i < response.reviews.length; i++) {
+        var title=$("<h5>")
+        title.addClass("row")
+        title.addClass("text-center")
+        title.addClass("d-flex justify-content-center")
+        title.text(response.reviews[i].time_created)
+        var context=$("<p>")
+        context.addClass("row")
+        context.addClass("text-center")
+        context.addClass("p-5")
+        context.text(response.reviews[i].text)
+        title.appendTo($("#modalRow"))
+        context.appendTo($("#modalRow"))
+        
+        }
+})
+}
 function moreResults(id) {
     let id1 = id;
     var queryId1 = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/" + id1;
@@ -150,7 +187,7 @@ function createContent(sv){
     button.data("id", sv.id)
     button.attr("data-target", ".moreImages")
     button.attr("data-toggle", "modal")
-    button.text("click for more pictures!")
+    button.text("More pictures!")
 
     var mapButton = $("<button>")
     mapButton.addClass("clickMap")
@@ -160,14 +197,23 @@ function createContent(sv){
     mapButton.text("Click for the Map")
     mapButton.data("latitude", sv.latitude)
     mapButton.data("longitude", sv.longitude)
-
+    var reviewButton=$("<button>")
+    reviewButton.data("id",sv.id)
+    reviewButton.attr("data-target", ".moreImages")
+    reviewButton.addClass("btn btn-secondary mx-2")
+    reviewButton.addClass("clickReview")
+    reviewButton.attr("data-toggle", "modal")
+    reviewButton.text("Reviews")
+    
       //using child added and snapshot fucntion to retrieve business names, reviews, pictures through pressing buttons
     //added buttons to get map location and click for map and added variables to place tattoo shop information on page
 
-    ul.append(name,stars, address, address2, phone, reviewCount, button, mapButton)
+    ul.append(name,stars, address, address2, phone, reviewCount, button, mapButton,reviewButton)
     row.append(image, ul)
     row.appendTo("#resultsDiv")
 }
+
+
 
 function reviewStars(ratings,stars){
     console.log(ratings)
