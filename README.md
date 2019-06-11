@@ -1,6 +1,6 @@
 https://abooth9422.github.io/Project1/ 
 
-# Project1
+# Project1 - Tattoo4U
 
 We are creating our first project called Tattoo4U.
 
@@ -8,24 +8,28 @@ The purpose of the project is to demonstrate being collaborative and to use GIT 
 
 We will also be demonstrating the skills that we have learned over the time we have been in the course.
 
-Our project idea is that we are going to target a certain area locally and pull from yelp and instagram tattoo shops within that area.
+We wanted to make it easy for people to be able to locate tattoo shops based on the "style" that they are interested in.
 
-The api's will also be used to reference pictures of the location reviews and possibly portfolio pictures.
+Alot of people that want a tattoo do not know how to properly research who is right to do the tattoo. So we want to provide review and comment information so that it's easy for the user to see. 
 
-We wanted to make it easy for people to be able to locate shops based on the "style" that they are interested in.
+Just like how a doctor is a specialist in a field so is a tattoo artist. 
 
-Alot of people that want a tattoo do not know how to properly research who is right to do the tattoo. 
+Our project idea is that we are going to target a certain local areas to pull shops from Yelp. Since Yelp doesn't include a field for tattoo "style", we are going to simulate that functionality using Firebase to store objects and randomly assign style categories to each object. 
 
-Just like how a doctor is a specialist in a field so is a tattoo artist. For example if we are telling a heart doctor to do brain surgery
+From the Yelp API we will get:
+Basic info like shop name, address, phone
+Rating Stars
+# of reviews and 3 comments
+images from the shop
 
-we probably will not get the best outcome.
+We are using the MapQuest API (GoogleMaps charges) to show mapped location info.
 
-The goal of this project is to be able to link the user based on style choice to a shop that has an artist that specializes in that category.
+We are using Firebase to store our own "API" information. 
 
-Some of the things that we are going to show in our results category will be:
+We also included:
+some image animation
+data validation to make sure users select the location and style
+Go Back and Start Over functionality
+Modals instead of pop-ups
 
-    Ratings (stars)
-    Location (map jpeg)
-    Reviews (first 3 reviews from yelp)
-    Artist name and handle to IG.(favicon link)
-    
+On the collaboration front, we have met in the classroom, at a home, and via Zoom. We had a few problems with github in the beginning, but definiley improved over time. We used github's Issues feature heavily as well as the "kanban" area. Of course we also used Slack for communicating. Additionally, we all scheduled time with our tutors. 
