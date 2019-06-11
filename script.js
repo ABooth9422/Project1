@@ -98,7 +98,7 @@ $(document).ready(function () {
     function finalSelection() {
         $("#tatSubmit").on("click", function () {
             console.log($("#tattooInput").val())
-            if($("#tattooInput").val()==="Which tattoo style did you decide on?" || ("#tattooInput").val()===" "){
+            if($("#tattooInput").val()==="Which tattoo style did you decide on?"){
             $("#tatSubmit").attr("data-target", ".moreImages")
             $("#tatSubmit").attr("data-toggle", "modal")
             var denied=$("<h3>")
