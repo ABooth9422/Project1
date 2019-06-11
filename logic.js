@@ -118,11 +118,13 @@ function reviewContent(id){
         title.addClass("row")
         title.addClass("text-center")
         title.addClass("d-flex justify-content-center")
+        title.addClass("text-white")
         title.text(response.reviews[i].time_created)
         var context=$("<p>")
         context.addClass("row")
         context.addClass("text-center")
         context.addClass("p-5")
+        context.addClass("text-white")
         context.text(response.reviews[i].text)
         title.appendTo($("#modalRow"))
         context.appendTo($("#modalRow"))
@@ -166,6 +168,7 @@ function initMap(latitude, longitude) {
         
         var map=$("<img src= still image'>")
         map.attr("src",address)
+        map.addClass("my-5")
         map.appendTo($("#modalRow"))
     
 }
@@ -177,10 +180,12 @@ function createContent(sv){
     var image = $("<img src= still image'>")
     image.addClass("img-thumbnail")
     image.addClass("imgModal")
+   
     image.attr("src", sv.thumbnail)
     image.attr("data-target", ".moreImages")
     image.attr("data-toggle", "modal")
     image.data("id", sv.id)
+    imageError();
     var ul = $("<ul>")
     ul.addClass("mx-5")
     var name = $("<h5>")
@@ -266,4 +271,10 @@ function rowExplanation(){
     console.log(tattooData)
     rowExplanation.text("Shops that cater to " +tattooData+ " style tattoos")
     rowExplanation.prependTo("#resultsDiv")
+}
+
+function imageError(){
+    $("img").on("error", function () {
+        $(this).attr("src", "../Project1/images/placeholder.png");
+      })
 }

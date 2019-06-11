@@ -27,9 +27,8 @@ button{
 }
 .modal-content{
   
-   opacity:0.90;
-  background-color:grey;
-  font:solid white;
+  opacity:0.90;
+  background-color:steelblue;
   font-weight:bold;
   width:400px fit-content;
 
