@@ -57,51 +57,7 @@ function pull(cityVal, tattooStyle) {
             var sv = snapshot.val();
             console.log(sv)
             if (sv.style === tattooStyle) {
-                var row = $("<div>")
-                row.addClass("container")
-                row.addClass("my-5")
-                row.addClass("results")
-                var image = $("<img src= still image'>")
-                image.addClass("img-thumbnail")
-                image.attr("src", sv.thumbnail)
-                var ul = $("<ul>")
-                ul.addClass("mx-5")
-                var name = $("<h5>")
-                name.text("Shop Name: " + sv.name)
-                var address = $("<h5>")
-                address.text(sv.address[0])
-                var address2 = $("<h5>")
-                address2.text(sv.address[1])
-                var phone = $("<h5>")
-                phone.text("Phone: " + sv.phone)
-                var rating = $("<h5>")
-                rating.text("Rating: " + sv.ratings)
-                var reviewCount = $("<h5>")
-                reviewCount.text("Reviews: " + sv.reviewCount)
-                var button = $("<button>")
-                button.addClass("btn btn-secondary")
-                button.addClass("resultButton")
-
-                button.data("id", sv.id)
-                button.attr("data-target", ".moreImages")
-                button.attr("data-toggle", "modal")
-                button.text("Click for more pictures!")
-
-                var mapButton = $("<button>")
-                mapButton.addClass("clickMap")
-                mapButton.addClass("btn btn-secondary mx-2")
-                mapButton.attr("data-target", ".moreImages")
-                mapButton.attr("data-toggle", "modal")
-                mapButton.text("Click for the Map")
-                mapButton.data("latitude", sv.latitude)
-                mapButton.data("longitude", sv.longitude)
-
-                  //using child added and snapshot fucntion to retrieve business names, reviews, pictures through pressing buttons
-                //added buttons to get map location and click for map and added variables to place tattoo shop information on page
-
-                ul.append(name, address, address2, phone, rating, reviewCount, button, mapButton)
-                row.append(image, ul)
-                row.appendTo("#resultsDiv")
+                createContent(sv)
             }
         })
     })
@@ -157,10 +113,82 @@ function initMap(latitude, longitude) {
    console.log(longitude)
    $("#modalRow").empty();
   
-    var address = "https://www.mapquestapi.com/staticmap/v5/map?key=loorHzIG2sew2tOMV3HYNMxhCMwd8i8i&locations="+latitude+","+longitude+"&size=400,400"
+    var address = "https://www.mapquestapi.com/staticmap/v5/map?key=loorHzIG2sew2tOMV3HYNMxhCMwd8i8i&locations="+latitude+","+longitude+"&zoom=14&size=400,400"
         
         var map=$("<img src= still image'>")
         map.attr("src",address)
         map.appendTo($("#modalRow"))
     
+}
+function createContent(sv){
+    var row = $("<div>")
+    row.addClass("container")
+    row.addClass("my-5")
+    row.addClass("results")
+    var image = $("<img src= still image'>")
+    image.addClass("img-thumbnail")
+    image.attr("src", sv.thumbnail)
+    var ul = $("<ul>")
+    ul.addClass("mx-5")
+    var name = $("<h5>")
+    name.text("Shop Name: " + sv.name)
+    var stars=$("<img src= still image'>")
+    reviewStars(sv,stars);
+    var address = $("<h5>")
+    address.text(sv.address[0])
+    var address2 = $("<h5>")
+    address2.text(sv.address[1])
+    var phone = $("<h5>")
+    phone.text("Phone: " + sv.phone)
+    
+    var reviewCount = $("<h5>")
+    reviewCount.text("Reviews: " + sv.reviewCount)
+    var button = $("<button>")
+    button.addClass("btn btn-secondary")
+    button.addClass("resultButton")
+
+    button.data("id", sv.id)
+    button.attr("data-target", ".moreImages")
+    button.attr("data-toggle", "modal")
+    button.text("click for more pictures!")
+
+    var mapButton = $("<button>")
+    mapButton.addClass("clickMap")
+    mapButton.addClass("btn btn-secondary mx-2")
+    mapButton.attr("data-target", ".moreImages")
+    mapButton.attr("data-toggle", "modal")
+    mapButton.text("Click for the Map")
+    mapButton.data("latitude", sv.latitude)
+    mapButton.data("longitude", sv.longitude)
+
+      //using child added and snapshot fucntion to retrieve business names, reviews, pictures through pressing buttons
+    //added buttons to get map location and click for map and added variables to place tattoo shop information on page
+
+    ul.append(name,stars, address, address2, phone, reviewCount, button, mapButton)
+    row.append(image, ul)
+    row.appendTo("#resultsDiv")
+}
+
+function reviewStars(ratings,stars){
+    console.log(ratings)
+    if(ratings.ratings===1.0){
+    stars.attr("src","../Project1/yelpStars/small_1.png")
+    }else if(ratings.ratings===1.5){
+    stars.attr("src","../Project1/yelpStars/small_1_half.png")
+    }else if(ratings.ratings===2.0){
+        stars.attr("src","../Project1/yelpStars/small_2.png")
+    }else if(ratings.ratings===2.5){
+        stars.attr("src","../Project1/yelpStars/small_2_half.png")
+    }else if(ratings.ratings===3.0){
+        stars.attr("src","../Project1/yelpStars/small_3.png")
+    }else if(ratings.ratings===3.5){
+        stars.attr("src","../Project1/yelpStars/small_3_half.png")
+    }else if(ratings.ratings===4.0){
+        stars.attr("src","../Project1/yelpStars/small_4.png")
+    }else if(ratings.ratings===4.5){
+        stars.attr("src","../Project1/yelpStars/small_4_half.png")
+    }else if(ratings.ratings===5.0){
+        stars.attr("src","../Project1/yelpStars/small_5.png")
+    }
+
 }
