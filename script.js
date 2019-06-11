@@ -25,6 +25,7 @@ $(document).ready(function () {
     //when the Back button is clicked from 2nd "page"
     function back() {
         $("#goBack").on("click", function () {
+            $("#modalRow").empty();
             $("#area").hide("fast");
             $("#carouselTattoo").hide("fast");
             $("#imageParagraph").hide("fast");
@@ -70,9 +71,16 @@ $(document).ready(function () {
     function citySelect() {
         $("#citySubmit").on("click", function () {
             if($("#city").val()==="Shop Location"){
-                modalPopup()
+                $("#citySubmit").attr("data-target", ".moreImages")
+                $("#citySubmit").attr("data-toggle", "modal")
+                var denied=$("<h3>")
+                denied.text("Make a selection to continue!")
+                denied.appendTo("#modalRow")
             return
             }else    
+            $("#modalRow").empty();
+            $("#citySubmit").removeAttr("data-target")
+            $("#citySubmit").removeAttr("data-toggle")
             $("#area").hide("fast");
             $("#carouselTattoo").fadeIn("slow");
             $("#lastInput").fadeIn("slow");
@@ -89,10 +97,18 @@ $(document).ready(function () {
     //after tattoo style selected and Submit button clicked
     function finalSelection() {
         $("#tatSubmit").on("click", function () {
-            console.log()
-            if($("#tattooInput").val()==="Which tattoo style did you decide on?"){
+            console.log($("#tattooInput").val())
+            if($("#tattooInput").val()==="Which tattoo style did you decide on?" || ("#tattooInput").val()===" "){
+            $("#tatSubmit").attr("data-target", ".moreImages")
+            $("#tatSubmit").attr("data-toggle", "modal")
+            var denied=$("<h3>")
+            denied.text("Make a selection to continue!")
+            denied.appendTo("#modalRow")
                 return;
             }else
+            $("#modalRow").empty();
+            $("#tatSubmit").removeAttr("data-target")
+            $("#tatSubmit").removeAttr("data-toggle")
             $("#area").hide("fast");
             $("#carouselTattoo").hide("fast");
             $("#imageParagraph").hide("fast");
@@ -110,6 +126,7 @@ $(document).ready(function () {
     //after Back button is clicked on third "page"
     function back2() {
         $("#goBack2").on("click", function () {
+            $("#modalRow").empty();
             $("#intro").hide("fast");
             $("#area").fadeIn("slow");
             $("#body").css({
@@ -134,6 +151,3 @@ $(document).ready(function () {
     }
 })
 
-function modalPopup(){
-    
-}

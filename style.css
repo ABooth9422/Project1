@@ -26,9 +26,14 @@ button{
   flex-wrap:wrap;
 }
 .modal-content{
-  width:fit-content;
-  opacity:0.80;
-  background-color:black;
+  
+   opacity:0.90;
+  background-color:grey;
+  font:solid white;
+  font-weight:bold;
+  width:400px fit-content;
+
+
 }
 #map {
   width: 400px;
