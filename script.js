@@ -1,4 +1,5 @@
 $(document).ready(function () {
+   
     anime({
         targets:'div.logo',
         translateX:[
@@ -68,6 +69,10 @@ $(document).ready(function () {
     // after city is selected and Submit clicked
     function citySelect() {
         $("#citySubmit").on("click", function () {
+            if($("#city").val()==="Shop Location"){
+                modalPopup()
+            return
+            }else    
             $("#area").hide("fast");
             $("#carouselTattoo").fadeIn("slow");
             $("#lastInput").fadeIn("slow");
@@ -75,14 +80,19 @@ $(document).ready(function () {
             $("#body").css({
                 "background": "url(../Project1/images/backgroundShop2.jpg)"
             })
-            
+         
         })
+    
 
     }
 
     //after tattoo style selected and Submit button clicked
     function finalSelection() {
         $("#tatSubmit").on("click", function () {
+            console.log()
+            if($("#tattooInput").val()==="Which tattoo style did you decide on?"){
+                return;
+            }else
             $("#area").hide("fast");
             $("#carouselTattoo").hide("fast");
             $("#imageParagraph").hide("fast");
@@ -123,3 +133,7 @@ $(document).ready(function () {
         location.reload();
     }
 })
+
+function modalPopup(){
+    
+}
