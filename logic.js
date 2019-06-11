@@ -1,12 +1,8 @@
 'use strict';
 //indicate that the code should be executed in "strict mode"
 
-<<<<<<< HEAD
-//firebase configuration
-=======
 
 //using firebase in the code to store variables that we are getting from the api
->>>>>>> 24ec14c97387aa1071e4d1e5cee355077929aa9c
 var firebaseConfig = {
     apiKey: "AIzaSyBh9Wg4jgKRJrMgmm3c-qZJeYbFeLKuiog",
     authDomain: "tattoo4u-1.firebaseapp.com",
@@ -38,11 +34,7 @@ function pull(cityVal, tattooStyle) {
         url: queryURL,
 
         method: "GET"
-<<<<<<< HEAD
-        //using GET method
-=======
          //using GET method
->>>>>>> 24ec14c97387aa1071e4d1e5cee355077929aa9c
         // call a method "then" for function to use as the callbacks
     }).then(function (response) {
         var businessArray = response.businesses;
