@@ -45,6 +45,7 @@ $(document).ready(function () {
     //after Start button is clicked
     function start() {
         $("#start").on("click", function () {
+            
             anime({
                 targets: 'div.studentName',
                 translateY: [{
