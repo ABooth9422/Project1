@@ -165,6 +165,4 @@ $(document).ready(function () {
     }
 })
 
-window.onpopstate = function() {
-    alert("clicked back button");
- }; 
+ 
