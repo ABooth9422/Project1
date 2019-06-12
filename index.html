@@ -39,29 +39,32 @@
         <nav class="navbar navbar-dark bg-dark rounded" style="width:100%;">
             <a class="navbar-brand text-white" href="#">
                 <div class="logo">
-                <img src="../Project1/images/tattoologo.jpg" class="mx-3 rounded-pill" width="200" height="40">
-            </div>
+                    <img src="../Project1/images/tattoologo.jpg" class="mx-3 rounded-pill" width="200" height="40">
+                </div>
             </a>
         </nav>
     </div>
     <div id="intro" class="text-center">
-        <h5 class="text-white" style="font-size:48px;">Let's get started!</h5>
+        <h4 class="text-white" style="font-size:48px;">Let's get started!</h4>
         <button type="button" id="start" class="btn btn-secondary">Click here to start</button>
         <!--button added to get to second page-->
     </div>
 
     <div container id="area" class="text-center text-white font-weight-bold container-fluid" style="padding:150px;">
-        <h5 class="text-white text-center font-weight-bold">Welcome to Tattoo4U! Our mission is to pair you with a local
+        <h4 class="text-white text-center font-weight-bold">Welcome to Tattoo4U! Our mission is to pair you with a local
             artist that specializes in the kind of tattoo
             you are looking to get done. Enter the location and style you want and we'll show you the best local shops
             in the area with their ratings and customer reviews.
-        </h5>
+        </h4>
         <h5 class="text-white display-4">Choose your location.</h5>
         <select class="custom-select" id="city" style="width:fit-content;">
             <option selected>Shop Location</option>
             <option value="matthewsNC">Matthews</option>
             <option value="midwoodNC">Plaza-Midwood</option>
             <option value="davidsonNC">Davidson</option>
+            <option value="monroeNC">Monroe</option>
+            <option value="concordNC">Concord</option>
+            <option value="rockhillSC">Rock Hill</option>
         </select>
         <!--options added and location choices to find tattoo shop-->
         <br>
@@ -69,21 +72,23 @@
         <button type="button" id="goBack" class="btn btn-secondary btn-lg mx-4">Go Back</button>
     </div>
     <div class="container-fluid d-flex justify-content-center">
-        <h5 class="text-white text-center font-weight-bold" id="imageParagraph"
+        <h4 class="text-center font-weight-bold" id="imageParagraph"
             style="padding:50px 0px 20px 0px;width:50%;">Look through the carousel of images to select the style you
             would like for your tattoo. It's important that you think about the style you want. Choose wisely something
             that you can see yourself wearing the rest of your life! You can choose:
-        </h5>
+        </h4>
     </div>
     <div class="container-fluid d-flex justify-content-center">
         <div id="lastInput">
             <select class="custom-select" id="tattooInput" style="width:100%;">
                 <option selected>Which tattoo style did you decide on?</option>
-                <option value="traditional"id="Traditional Tattoo">Traditional</option>
-                <option value="newSchool" id="New School Tattoo">New School</option>
-                <option value="realism" id="Realism Tattoo">Realism</option>
-                <option value="script" id="Script Tattoo">Script</option>
-                <option value="watercolor" id="Watercolor Tattoo">Watercolor</option>
+                <option value="traditional" id="Traditional">Traditional</option>
+                <option value="newSchool" id="New School">New School</option>
+                <option value="realism" id="Realism">Realism</option>
+                <option value="script" id="Script">Script</option>
+                <option value="watercolor" id="Watercolor">Watercolor</option>
+                <option value="japanese" id="Japanese">Traditional Japanese</option>
+                <option value="geometric" id="Geometric">Geometric</option>
             </select>
             <br>
             <button type="button" id="tatSubmit" class="btn btn-secondary btn-lg my-2">Submit</button>
@@ -100,6 +105,8 @@
                     <li data-target="#carouselTattoo" data-slide-to="2"></li>
                     <li data-target="#carouselTattoo" data-slide-to="3"></li>
                     <li data-target="#carouselTattoo" data-slide-to="4"></li>
+                    <li data-target="#carouselTattoo" data-slide-to="5"></li>
+                    <li data-target="#carouselTattoo" data-slide-to="6"></li>
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -137,6 +144,20 @@
                             <p>Example of Watercolor</p>
                         </div>
                     </div>
+                    <div class="carousel-item">
+                        <img src="../Project1/images/japanese.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Japanese</h5>
+                            <p>Example of Japanese</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../Project1/images/geometric.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Geometric</h5>
+                            <p>Example of Geometric</p>
+                        </div>
+                    </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselTattoo" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -152,6 +173,7 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <div class="modal fade moreImages" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content"id="modal">
@@ -161,27 +183,50 @@
                       <!--modal graphical control element-->
           
             <div class="row d-flex justify-content-center"id="modalRow">
+=======
+    <div class="modal fade moreImages" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" id="modal">
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"
+                    style="width:5%;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+                <div class="row d-flex justify-content-center" id="modalRow">
+
+                </div>
+
+>>>>>>> c20066192ba8e3182f32beb009e45487c212e806
 
             </div>
-             
-          
         </div>
-      </div>
     </div>
     <div class="container-fluid text-center mb-5 text-white" id="resultsDiv">
     </div>
     <div class="container-fluid text-center">
+<<<<<<< HEAD
     <button type="button" id="newSearch" class="btn btn-secondary btn-lg mb-5">Start New Search!</button>
     <!--button added for new search at the footer of last page-->
 </div>  
+=======
+        <button type="button" id="newSearch" class="btn btn-secondary btn-lg mb-5">Start New Search!</button>
+    </div>
+>>>>>>> c20066192ba8e3182f32beb009e45487c212e806
     <br>
     <br>
-    <script async defersrc="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZiN6dOZ6o7JKMKtx3NdTKnDf1Lu1ynw4&callback=initMap"></script>
+    <script async
+        defersrc="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZiN6dOZ6o7JKMKtx3NdTKnDf1Lu1ynw4&callback=initMap">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
     <script src="script.js"></script>
     <script src="logic.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<<<<<<< HEAD
     <!--all scripts used including google maps api-->
+=======
+
+>>>>>>> c20066192ba8e3182f32beb009e45487c212e806
     </script>
 </body>
 
@@ -191,38 +236,48 @@
             <div class="row">
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                     <div class="studentName">
-                    <div class="img" id="Aaron"><a href="https://abooth9422.github.io/" target="_blank">
-                            <img src="../Project1/images/git.png" class="rounded-circle" width="40" height="40"></a>
-                        <label for="Aaron" class="mx-4">Aaron Booth</label>
+                        <div class="img" id="Aaron"><a href="https://abooth9422.github.io/" target="_blank">
+                                <img src="../Project1/images/git.png" class="rounded-circle" width="40" height="40"></a>
+                            <label for="Aaron" class="mx-4">Aaron Booth</label>
+                        </div>
                     </div>
                 </div>
-            </div>
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                     <div class="studentName">
-                    <div class="img" id="Robbi"><a href="https://rmwalls.github.io/" target="_blank">
-                            <img src="../Project1/images/git2.png" class="rounded-circle" width="40" height="40"></a>
-                        <label for="Robbi" class="mx-4">Robbi Walls</label>
+                        <div class="img" id="Robbi"><a href="https://rmwalls.github.io/" target="_blank">
+                                <img src="../Project1/images/git2.png" class="rounded-circle" width="40"
+                                    height="40"></a>
+                            <label for="Robbi" class="mx-4">Robbi Walls</label>
+                        </div>
                     </div>
                 </div>
-            </div>
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                     <div class="studentName">
-                    <div class="img" id="Griffin"><a href="https://griffinth.github.io/" target="_blank">
-                            <img src="../Project1/images/git3.png" class="rounded-circle" width="40" height="40"></a>
-                        <label for="Griffin" class="mx-4">Griffin Hume</label>
+                        <div class="img" id="Griffin"><a href="https://griffinth.github.io/" target="_blank">
+                                <img src="../Project1/images/git3.png" class="rounded-circle" width="40"
+                                    height="40"></a>
+                            <label for="Griffin" class="mx-4">Griffin Hume</label>
+                        </div>
                     </div>
                 </div>
-            </div>
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                     <div class="studentName">
+<<<<<<< HEAD
                     <div class="img" id="Alicia"><a href="https://atamboli4718.github.io/Bootstrap-Portfolio/"
                             target="_blank">
                             <img src="../Project1/images/git4.png" class="rounded-circle" width="40" height="40"></a>
                         <label for="Alicia" class="mx-4">Alicia Tamboli</label>
                         <!--github pages and portfolios at footer of page-->
+=======
+                        <div class="img" id="Alicia"><a href="https://atamboli4718.github.io/Bootstrap-Portfolio/"
+                                target="_blank">
+                                <img src="../Project1/images/git4.png" class="rounded-circle" width="40"
+                                    height="40"></a>
+                            <label for="Alicia" class="mx-4">Alicia Tamboli</label>
+                        </div>
+>>>>>>> c20066192ba8e3182f32beb009e45487c212e806
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>

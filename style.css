@@ -34,6 +34,20 @@ button{
 
 
 }
+#imageParagraph{
+  
+  color:white;
+  text-shadow:black 10px 10px 10px;
+}
+#intro,
+.explanation,
+#area{
+  text-shadow:black 10px 10px 10px;
+}
+ul{
+  background-color:#952a10;
+  opacity:0.90;
+}
 #map {
   width: 400px;
   height: 400px;
