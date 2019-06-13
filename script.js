@@ -45,6 +45,7 @@ $(document).ready(function () {
     //after Start button is clicked
     function start() {
         $("#start").on("click", function () {
+            
             anime({
                 targets: 'div.studentName',
                 translateY: [{
@@ -165,6 +166,4 @@ $(document).ready(function () {
     }
 })
 
-window.onpopstate = function() {
-    alert("clicked back button");
- }; 
+ 
