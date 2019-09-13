@@ -33,3 +33,13 @@ We also included:
 - Modals instead of pop-ups
 
 On the collaboration front, we have met in the classroom, at a home, and via Zoom. We had a few problems with github in the beginning, but definiley improved over time. We used github's Issues feature heavily as well as the "kanban" area. Of course we also used Slack for communicating. Additionally, we all scheduled time with our tutors. 
+
+Team Members:
+<ul>
+    <li> Aaron Booth
+    <li> Griffin Hume
+    <li> Alicia Tamboli
+    <li> Robbi Walls
+</ul>
+
+<img src="/images/tattoo_screen1.jpg alt="application screen shot">
